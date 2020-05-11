@@ -1,10 +1,16 @@
 <!DOCTYPE html>
+{% extends "main_app/common.html" %}
+{% load static %}
+
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<h1> WELCOME!!</h1>
-</body>
+    {% block content %}
+
+        <img style="width="1200" height="600"" src="{% static 'Images/w1.jpg' %}">
+        <h1>Welcome to homepage!!</h1>
+
+
+    {% endblock %}
+
+
+
 </html>

@@ -7,3 +7,6 @@ def home(request):
 
     }
     return render(request, 'main_app/home.html',context )
+
+def women_rights(request):
+    return render(request, 'main_app/women_rights.html', {'title':'women_rights'})
