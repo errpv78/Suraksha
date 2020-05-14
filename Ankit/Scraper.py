@@ -1,4 +1,3 @@
-# Scraping toAddress,fromAddress and value
 import html
 from urllib.request import Request,urlopen
 from bs4 import BeautifulSoup as soup
