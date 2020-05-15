@@ -10,7 +10,7 @@ After clonning repository open a terminal from the repository folder and run com
 ./run.sh (for linux)
 
 Windows:
-1. Open Anaconda/cmd. 
+1. Open Anaconda/cmd, **avoid using git bash**. 
 2. Change directory to the **website** folder in the project.
 3. Run the command **python manage.py runserver**
 
