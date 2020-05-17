@@ -29,9 +29,7 @@ for url in urlList:
             links.remove(link)
     
         
-    # keywords to be used later for finding relevant news
-    # keywords=['women','Women','woman','Woman','girls','Girls','Girl','girl','rape','Rape','Rapist','rapist']
-    
+       
     # fetching headline and news of homepage news
     for link in links:
         cur_url = urlList[0][:-1]+link
@@ -42,7 +40,7 @@ for url in urlList:
         
         article_title = news_page_soup.find('h1', class_ ='ArticleHeader_headline')
         headlines.append(article_title.text)
-        #print(article_title.string)
+        print(article_title.text)
         
         article_body = news_page_soup.findAll('div', class_ ='StandardArticleBody_body')
         for tag in article_body:
@@ -51,5 +49,18 @@ for url in urlList:
             for tag in pTags:
                 s=s+(str(tag.text)) + "\n"
             newsBody.append(s)
+            
+ # keywords to be used later for finding relevant news
+keywords=['women','Women','woman','Woman','girls','Girls','Girl','girl','rape','Rape','Rapist','rapist']
+
+related_news = []
+related_title = []
+
+for (i,news) in enumerate(newsBody):
+    for x in keywords:
+        if x in news:
+            related_news.append(news)
+            related_title.append(headlines[i])
+            break
         
-        
+
