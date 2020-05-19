@@ -24,18 +24,32 @@
     <body>
 
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-          <a class="navbar-brand" href="{% url 'main_app-home' %}">Suraksha: Empowering Women</a>
+          <a class="navbar-brand" href="/home">Suraksha: Empowering Women</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav mr-auto">
               <li class="nav-item">
-                <a class="nav-link" href="{% url 'main_app-women_rights' %}">Women Rights <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="/women_rights">Women Rights <span class="sr-only">(current)</span></a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{% url 'main_app-women_rights' %}">Features</a>
-              </li>
+
+              {% if user.is_authenticated %}
+                  <li class="nav-item">
+                    <a class="nav-link" href="/account">{{user.username}}</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/logout">Logout</a>
+                  </li>
+              {% else %}
+                  <li class="nav-item">
+                    <a class="nav-link" href="/register">Register</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/login">Login</a>
+                  </li>
+              {% endif %}
+
               <li class="nav-item">
                 <a class="nav-link" href="#">Pricing</a>
               </li>
@@ -46,10 +60,22 @@
           </div>
         </nav>
 
-        {% block content %}
+        {% if messages %}
+            {% for message in messages %}
+                <script>M.toast({html: "{{message}}", classes: 'blue rounded',
+                displayLength:4000});</script>
+            {% endfor %}
+        {% endif %}
 
-        {% endblock %}
 
+        <div class="container">
+            <br>
+            {% block content %}
+
+            {% endblock %}
+        </div>
+
+        <br>
         <footer class="page-footer" style="background-color: #000000">
           <div class="container">
             <div class="row">

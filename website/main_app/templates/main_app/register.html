@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+{% extends "main_app/common.html" %}
+{% load static %}
+
+<html lang="en">
+    {% block content %}
+
+        <form method="POST">
+            {% csrf_token %}
+            {{form.as_p}}
+
+            <button class="btn" type="submit">Register</button>
+        </form>
+
+        If already registered, <a href="/login"><strong>Login</strong></a> instead.
+
+    {% endblock %}
+
+
+
+</html>
