@@ -40,7 +40,7 @@ for url in urlList:
         
         article_title = news_page_soup.find('h1', class_ ='ArticleHeader_headline')
         headlines.append(article_title.text)
-        print(article_title.text)
+        # print(article_title.text)
         
         article_body = news_page_soup.findAll('div', class_ ='StandardArticleBody_body')
         for tag in article_body:
@@ -62,5 +62,7 @@ for (i,news) in enumerate(newsBody):
             related_news.append(news)
             related_title.append(headlines[i])
             break
-        
 
+print(related_news)
+
+print(related_title)
