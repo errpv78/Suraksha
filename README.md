@@ -2,7 +2,7 @@
 A web app to feature women related news articles, and crimes against women, and other ways for women safety
 
 Requirements:
-Python; Pip; Django
+Python; Pip; Django; SQLite
 
 Run instructions:
 Linux:

@@ -52,3 +52,37 @@ for url in urlList:
         newsBody.append(article_body.text)
 
 # Print headlines, newsSummary and newsBody to see them
+
+# Updating db
+import sqlite3
+conn = sqlite3.connect('newsdb.db')
+print("Opened database successfully")
+
+#conn.execute('CREATE TABLE News_content(Id Int,headline Varchar,summary Varchar,news_body Varchar);')
+
+query = "INSERT INTO News_content (Id,headline,summary,news_body) VALUES (?, ?, ?, ?) "
+                                
+for i in range(len(headlines)):
+    
+    recordTuple = (i+1, headlines[i], newsSummary[i], newsBody[i])
+    conn.execute(query, recordTuple)
+
+
+
+conn.commit()
+print("Records created successfully")
+conn.close()
+
+# Printing db
+conn = sqlite3.connect('newsdb.db')
+print("Opened database successfully")
+
+cursor = conn.execute("SELECT Id,headline,summary,news_body from News_content")
+for row in cursor:
+   print( "Id: ", row[0])
+   print( "headline: ", row[1])
+   print( "summary: ", row[2])
+   print( "news_body: ", row[3]) 
+
+print( "Operation done successfully")
+conn.close()
