@@ -3,6 +3,8 @@ from django.http import HttpResponse
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import login, logout, authenticate
 from django.contrib import messages
+from .forms import ContactForm
+from .models import contact
 
 # Create your views here.
 def home(request):
@@ -55,3 +57,43 @@ def login_request(request):
 
     form = AuthenticationForm
     return render(request, "main_app/login.html", {'form':form})
+
+def emergency_contact(request):
+    contacts = contact.objects.all()
+    total_contacts = contacts.count()
+    context = {'contacts':contacts, 'total_contacts':total_contacts}
+
+    return render(request, 'main_app/emergency_contact.html', context)
+
+def create_contact(request):
+    form = ContactForm
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('main:home')
+
+    context = {'form': form}
+    return render(request, 'main_app/create_contact.html', context)
+
+def update_contact(request, cid):
+    curr_contact = contact.objects.get(id=cid)
+    form = ContactForm
+
+    if request.method == 'POST':
+        form = ContactForm(request.POST, instance=curr_contact)
+        if form.is_valid():
+            form.save()
+            return redirect('main_app:home')
+
+    context = {'form': form}
+    return render(request, 'main_app/create_contact.html', context)
+
+def delete_contact(request, cid):
+    curr_contact = contact.objects.get(id=cid)
+    if request.method == "POST":
+        curr_contact.delete()
+        return redirect('main_app:home')
+
+    context = {'item': curr_contact}
+    return render(request, 'main_app/delete_contact.html', context)
