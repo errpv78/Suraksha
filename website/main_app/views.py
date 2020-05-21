@@ -5,6 +5,7 @@ from django.contrib.auth import login, logout, authenticate
 from django.contrib import messages
 from .forms import ContactForm
 from .models import contact
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def home(request):
@@ -58,6 +59,7 @@ def login_request(request):
     form = AuthenticationForm
     return render(request, "main_app/login.html", {'form':form})
 
+
 def emergency_contact(request):
     contacts = contact.objects.all()
     total_contacts = contacts.count()
@@ -70,14 +72,18 @@ def create_contact(request):
     if request.method == 'POST':
         form = ContactForm(request.POST)
         if form.is_valid():
-            form.save()
-            return redirect('main:home')
 
+            form.save()
+            messages.info(request, f"Successfully created new contact !")
+            return redirect('main_app:home')
+
+        messages.error(request, f"Invalid username or password")
+    # messages.error(request, f"Invalid contact!!")
     context = {'form': form}
     return render(request, 'main_app/create_contact.html', context)
 
-def update_contact(request, cid):
-    curr_contact = contact.objects.get(id=cid)
+def update_contact(request, pk):
+    curr_contact = contact.objects.get(id=pk)
     form = ContactForm
 
     if request.method == 'POST':
@@ -89,8 +95,8 @@ def update_contact(request, cid):
     context = {'form': form}
     return render(request, 'main_app/create_contact.html', context)
 
-def delete_contact(request, cid):
-    curr_contact = contact.objects.get(id=cid)
+def delete_contact(request, pk):
+    curr_contact = contact.objects.get(id=pk)
     if request.method == "POST":
         curr_contact.delete()
         return redirect('main_app:home')
