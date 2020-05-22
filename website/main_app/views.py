@@ -74,6 +74,8 @@ def emergency_contact(request):
         if request.user.is_authenticated:
             curr = user
             break
+    if curr==0:
+        return redirect("main_app:login")
     user = curr
     contacts = contact.objects.filter(user=user)
     total_contacts = contacts.count()
