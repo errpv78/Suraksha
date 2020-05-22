@@ -9,34 +9,35 @@
 		<h5>Emergency Contacts:</h5>
         <h6>Total Contacts: {{total_contacts}}</h6>
 		<hr>
-		<div class="card card-body">
+
 			<a class="btn btn-primary  btn-sm btn-block" href="{% url 'main_app:create_contact' %}">Create Contact</a>
-			<table class="table table-sm">
-				<tr>
-					<th></th>
-					<th>Name</th>
-					<th>Phone</th>
-                    <th>Relation</th>
-                    <th>Email</th>
-                    <th>Update</th>
-                    <th>Delete</th>
-				</tr>
-
-				{% for contact in contacts %}
+			<br>
+			<table class="table">
+				<thead class="thead-dark">
 					<tr>
-						<td></td>
-						<td>{{contact.name}}</td>
-						<td>{{contact.phone}}</td>
-                        <td>{{contact.relation}}</td>
-                        <td>{{contact.email}}</td>
-                        <td><a class="btn btn-sm btn-info" href="{% url 'main_app:update_contact' contact.id %}">Update</a></td>
-                        <td><a class="btn btn-sm btn-danger" href="{% url 'main_app:delete_contact' contact.id %}">Delete</a></td>
+						<th>Name</th>
+						<th>Phone</th>
+						<th>Relation</th>
+						<th>Email</th>
+						<th>Update</th>
+						<th>Delete</th>
 					</tr>
+				</thead>
 
+				{% for contact in contacts.all %}
+					<tbody class="table-striped">
+						<tr>
+							<td>{{contact.name}}</td>
+							<td>{{contact.phone}}</td>
+							<td>{{contact.relation}}</td>
+							<td>{{contact.email}}</td>
+							<td><a class="btn btn-sm btn-info" href="{% url 'main_app:update_contact' contact.id %}">Update</a></td>
+							<td><a class="btn btn-sm btn-danger" href="{% url 'main_app:delete_contact' contact.id %}">Delete</a></td>
+						</tr>
+					</tbody>
 				{% endfor %}
 
 			</table>
-		</div>
 	</div>
 
 
