@@ -48,15 +48,16 @@ for url in urlList:
         article_summary = news_page_soup.find('h2', class_ ='title2')
         newsSummary.append(article_summary.text)
         
-        article_body = news_page_soup.find('div', class_ ='Normal')
-        newsBody.append(article_body.text)
-
+        # article_body = news_page_soup.find('div', class_ ='Normal')
+        newsBody.append(cur_url)
 # Print headlines, newsSummary and newsBody to see them
 
 # Updating db
 import sqlite3
 conn = sqlite3.connect('newsdb.db')
 print("Opened database successfully")
+
+conn.execute("delete from News_content")
 
 #conn.execute('CREATE TABLE News_content(Id Int,headline Varchar,summary Varchar,news_body Varchar);')
 
