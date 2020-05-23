@@ -7,6 +7,7 @@ urlList = ['https://economictimes.indiatimes.com/topic/women/news']
 headlines = []
 newsSummary = []
 newsBody = []
+imgUrl = []
 baseURL = 'https://economictimes.indiatimes.com'
 
 for url in urlList:
@@ -50,6 +51,11 @@ for url in urlList:
         
         # article_body = news_page_soup.find('div', class_ ='Normal')
         newsBody.append(cur_url)
+        
+        # Fetching image url
+        img_url = news_page_soup.find('figure').find('img').get('src')
+        imgUrl.append(img_url)
+        
 # Print headlines, newsSummary and newsBody to see them
 
 # Updating db
@@ -87,3 +93,13 @@ for row in cursor:
 
 print( "Operation done successfully")
 conn.close()
+
+import os
+import urllib.request
+cwd = os.getcwd()
+
+
+for i,url in enumerate(imgUrl):
+    fullfilename = os.path.join(cwd+"\Pics",str(i+1)+".jpg")
+    urllib.request.urlretrieve(url, fullfilename)
+
