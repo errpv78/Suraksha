@@ -1,14 +1,11 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import login, logout, authenticate
 from django.contrib import messages
 from .forms import ContactForm
 from .models import contact
-from django.contrib.auth import get_user
 from django.contrib.auth.models import User
-from django.contrib.auth.decorators import login_required
-from django.http import HttpResponseRedirect
+from .SmsSender import sendSms
 
 
 # Create your views here.
@@ -134,3 +131,29 @@ def delete_contact(request, pk):
     context = {'item': curr_contact}
     return render(request, 'main_app/delete_contact.html', context)
 
+def emergency(request):
+    users = User.objects.all()
+    curr = 0
+    for user in users:
+        if request.user.is_authenticated:
+            curr = user
+            break
+    if curr==0:
+        return redirect("main_app:login")
+    user = curr
+    contacts = contact.objects.filter(user=user)
+    name = user.username
+    message = name+" is in emergency situation and need your help immediately!!"
+    try:
+        sendSms("8350815015", message)
+    except:
+        pass
+    try:
+        sendSms("7696043017", message)
+    except:
+        pass
+
+    admin = [["Parikh", "8350815015"], ["Ankit", "1234567890"]]
+    context = {'contacts':contacts, 'admin':admin}
+
+    return render(request, 'main_app/emergency.html', context)

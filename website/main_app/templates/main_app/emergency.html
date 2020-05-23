@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+{% extends "main_app/common.html" %}
+{% load static %}
+
+<html lang="en">
+    {% block content %}
+
+        <h1>Emergency Situation!!</h1>
+        {% for contact in contacts %}
+            <p>Message deleivered to {{contact.name}}</p>
+        {% endfor %}
+
+
+    {% endblock %}
+
+
+
+</html>
