@@ -97,9 +97,9 @@ def create_contact(request):
         form = ContactForm(request.POST, instance=inst)
         if form.is_valid():
             form.save()
-            messages.info(request, f"Successfully created new contact !")
+            messages.info(request, f"New contact created successfully!!")
             # request.user.contact.add(form)
-            return redirect('main_app:home')
+            return redirect('main_app:emergency_contact')
 
         messages.error(request, f"Invalid username or password")
     # messages.error(request, f"Invalid contact!!")
@@ -109,13 +109,15 @@ def create_contact(request):
 
 def update_contact(request, pk):
     curr_contact = contact.objects.get(id=pk)
+    name = curr_contact.name
     form = ContactForm
 
     if request.method == 'POST':
         form = ContactForm(request.POST, instance=curr_contact)
         if form.is_valid():
             form.save()
-            return redirect('main_app:home')
+            messages.error(request, f"{name} updated successfully!!")
+            return redirect('main_app:emergency_contact')
 
     context = {'form': form}
     return render(request, 'main_app/create_contact.html', context)
@@ -123,9 +125,11 @@ def update_contact(request, pk):
 
 def delete_contact(request, pk):
     curr_contact = contact.objects.get(id=pk)
+    name = curr_contact.name
     if request.method == "POST":
         curr_contact.delete()
-        return redirect('main_app:home')
+        messages.error(request, f"{name} deleted successfully!!")
+        return redirect('main_app:emergency_contact')
 
     context = {'item': curr_contact}
     return render(request, 'main_app/delete_contact.html', context)
