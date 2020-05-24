@@ -53,6 +53,10 @@
                 <a class="nav-link" href="/women_rights">Women Rights <span class="sr-only">(current)</span></a>
               </li>
 
+              <li class="nav-item">
+                <a class="nav-link" href="/news">Quick Glance<span class="sr-only">(current)</span></a>
+              </li>
+
               {% if user.is_authenticated %}
                   <li class="nav-item">
                     <a class="nav-link" href="/account">{{user.username}}</a>
@@ -91,8 +95,6 @@
         <img height="650" width="100%" ' src="{% static 'Images/w1.jpg' %}">
     </div>
         <h1>Welcome to homepage!!</h1>
-
-
 
 
         <footer class="page-footer" style="background-color: #000000">

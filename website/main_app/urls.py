@@ -34,5 +34,7 @@ urlpatterns = [
     path("delete_contact/<str:pk>/", views.delete_contact, name="delete_contact"),
     path("emergency/", views.emergency, name="emergency"),
 
+    path("news/", views.news, name="news"),
+
     # path('admin/', admin.site.urls),
 ]

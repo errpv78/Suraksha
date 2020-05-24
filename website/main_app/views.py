@@ -157,3 +157,7 @@ def emergency(request):
     context = {'contacts':contacts, 'admin':admin}
 
     return render(request, 'main_app/emergency.html', context)
+
+
+def news(request):
+    return render(request, 'main_app/news.html', {'title':'news'} )
