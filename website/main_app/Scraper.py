@@ -9,22 +9,18 @@ import sqlite3
 import time
 
 def news_fetch():
-    s = time.time()
     cwd = os.getcwd()
 
+    cwd += "/main_app"
     # Updating db
     conn = sqlite3.connect('newsdb.db')
-    print("Opened database successfully")
+    # print("Opened database successfully")
     conn.execute('CREATE TABLE IF NOT EXISTS News_content(Id Int,headline Varchar,summary Varchar,url Varchar, date Varchar);')
     conn.execute("delete from News_content")
 
 
 
     urlList = ['https://economictimes.indiatimes.com/topic/women/news']
-    headlines = []
-    newsSummary = []
-    newsBody = []
-    imgUrl = []
     baseURL = 'https://economictimes.indiatimes.com'
 
     for url in urlList:
@@ -50,35 +46,35 @@ def news_fetch():
                 # img = tag.find("img")
                 if head!=None:
                     head = head.text
-                    print(head)
+                    # print(head)
                 else:
                     continue
                 if para!=None:
                     para = para.text
-                    print(para)
+                    # print(para)
                 else:
                     continue
                 if date!=None:
                     date = date.text
-                    print(date)
+                    # print(date)
                 if img!=None:
                     img_url = img.get("data-original")
                     # print(type(img_url))
-                    print(img_url)
+                    # print(img_url)
                 else:
                     continue
                 if tdTags!=None:
                     url = tdTags.get("href")
                     url = baseURL+str(url)
-                    print(url)
+                    # print(url)
                 else:
                     continue
                 if head!=None and para!=None and url!=None and img_url!=None and date!=None:
-                    if platform == "linux" or platform == "linux2":
-                        fullfilename = os.path.join(cwd + "/static/Pics", str(news + 1) + ".jpg")
-                    else:
-                        fullfilename = os.path.join(cwd + "\static\Pics", str(news + 1) + ".jpg")
-                    urllib.request.urlretrieve(img_url, fullfilename)
+                    # if platform == "linux" or platform == "linux2":
+                    #     fullfilename = os.path.join(cwd + "/static/Pics", str(news + 1) + ".jpg")
+                    # else:
+                    #     fullfilename = os.path.join(cwd + "\main_app\static\Pics", str(news + 1) + ".jpg")
+                    # urllib.request.urlretrieve(img_url, fullfilename)
 
                     query = "INSERT INTO News_content (Id,headline,summary,url, date) VALUES (?, ?, ?, ?, ?) "
                     recordTuple = (news + 1, head, para, url, date)
@@ -86,17 +82,20 @@ def news_fetch():
                     news+=1
 
     conn.commit()
-    print("Done")
+    # print("Done")
     e = time.time()
-    print("total time", e-s)
+    # print("total time", e-s)
     conn.close()
 
 # news_fetch()
 
 def write_news():
+
     cwd = os.getcwd()
-    file_name = cwd+"/templates/main_app/news.html"
-    print(file_name)
+    file_name = cwd
+    file_name+= "/main_app"
+    file_name +=   "/templates/main_app/news.html"
+    # print(file_name)
     file = open(file_name, "w+")
     conn = sqlite3.connect('newsdb.db')
     # print("Opened database successfully")
@@ -105,13 +104,13 @@ def write_news():
     results = cur.fetchall()
     news_count = len(results)
     conn.close()
-    print(len(results), results)
+    # print(len(results), results)
     cards = []
     count = 1
     for j in results:
         card = """  <div class="card">
                         <div class="card-image waves-effect waves-block waves-light">
-                            <img height="200" class="activator" src="{% static 'Pics/""" + str(count) + """.jpg' %}">
+                            <img height="200" class="activator" src="{% static 'Pics/""" + str(count) +""".jpg' %}">
                         </div>
                         <div class="card-content">
                             <span class="card-title activator grey-text text-darken-4">""" + j[1] +"""<i class="material-icons right">more_vert</i></span>
@@ -132,6 +131,16 @@ def write_news():
                     {% load static %}    
                 
                     {% block content %} 
+                    
+                    <div class="jumbotron">
+                      <h1 class="display-4">Latest news!!</h1>
+                      <p class="lead">News and issues of women should no longer go unnoticed, know the real issues.</p>
+                      <hr class="my-4">
+                      <p>Refresh for latest News</p>
+                      <p class="lead">
+                        <a class="btn btn-primary btn-lg" href="{% url 'main_app:news' %}" role="button"><i class="material-icons">refresh</i></a>
+                      </p>
+                    </div>
                     <style>.card { width:400px; height:400px;} </style>
                        <div class="row"> """)
 
@@ -142,4 +151,13 @@ def write_news():
                         {% endblock %} """)
 
     file.close()
-write_news()
+
+# s = time.time()
+#
+# news_fetch()
+
+# write_news()
+#
+# e = time.time()
+#
+# print((e-s)/1000)

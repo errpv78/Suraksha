@@ -3,108 +3,34 @@
                     {% load static %}    
                 
                     {% block content %} 
+                    
+                    <div class="jumbotron">
+                      <h1 class="display-4">Latest news!!</h1>
+                      <p class="lead">News and issues of women should no longer go unnoticed, know the real issues.</p>
+                      <hr class="my-4">
+                      <p>Refresh for latest News</p>
+                      <p class="lead">
+                        <a class="btn btn-primary btn-lg" href="{% url 'main_app:news' %}" role="button"><i class="material-icons">refresh</i></a>
+                      </p>
+                    </div>
                     <style>.card { width:400px; height:400px;} </style>
                        <div class="row">   <div class="card">
                         <div class="card-image waves-effect waves-block waves-light">
                             <img height="200" class="activator" src="{% static 'Pics/1.jpg' %}">
                         </div>
                         <div class="card-content">
-                            <span class="card-title activator grey-text text-darken-4">The day Bachendri conquered the Everest and a lot more<i class="material-icons right">more_vert</i></span>
-                            <p><a class="waves-effect waves-light btn" href="  https://economictimes.indiatimes.com/news/sports/the-day-bachendri-conquered-the-everest-and-a-lot-more/articleshow/75914249.cms  ">See More</a></p>
+                            <span class="card-title activator grey-text text-darken-4">Tinder pledged $1 Million in free ad inventory for women led startups: Meet the Recipients<i class="material-icons right">more_vert</i></span>
+                            <p><a class="waves-effect waves-light btn" href="  https://economictimes.indiatimes.com/small-biz/startups/newsbuzz/tinder-pledged-1-million-in-free-ad-inventory-for-women-led-startups-meet-the-recipients/articleshow/75885099.cms  ">See More</a></p>
                         </div>
                         <div class="card-reveal">
-                        <span class="card-title activator grey-text text-darken-4">23 May, 2020, 07:41AM IST
+                        <span class="card-title activator grey-text text-darken-4">22 May, 2020, 10:52AM IST
 												
                           <i class="material-icons right">close</i>
-                          <p class="activator">Thirty-six years ago, on this very day, Uttarakhand’s Bachendri Pal became the first Indian woman to scale the highest peak in the world, shattering many a glass ceiling. Every moment of that glorious day still fresh in her mind, Bachendri shares with ET Sport her inspiring journey</p></span>
+                          <p class="activator">From making valuable education accessible to all to making patient-care instantly available for diabetics: here’s what Indian women are accomplishing</p></span>
                         </div>
                      </div>  <div class="card">
                         <div class="card-image waves-effect waves-block waves-light">
                             <img height="200" class="activator" src="{% static 'Pics/2.jpg' %}">
-                        </div>
-                        <div class="card-content">
-                            <span class="card-title activator grey-text text-darken-4">SC issues notices on a PIL by Muslim women<i class="material-icons right">more_vert</i></span>
-                            <p><a class="waves-effect waves-light btn" href="  https://economictimes.indiatimes.com/news/politics-and-nation/sc-issues-notices-on-a-pil-by-muslim-women/articleshow/75855701.cms  ">See More</a></p>
-                        </div>
-                        <div class="card-reveal">
-                        <span class="card-title activator grey-text text-darken-4">21 May, 2020, 02:13AM IST
-												
-                          <i class="material-icons right">close</i>
-                          <p class="activator">SC on Wednesday sought formal responses from the central and Maharashtra governments on a PIL filed by a Pune-based woman seeking entry into a local mosque. The woman claimed though she wrote seeking permission, there was no response.</p></span>
-                        </div>
-                     </div>  <div class="card">
-                        <div class="card-image waves-effect waves-block waves-light">
-                            <img height="200" class="activator" src="{% static 'Pics/3.jpg' %}">
-                        </div>
-                        <div class="card-content">
-                            <span class="card-title activator grey-text text-darken-4">Reimagining business: Business leaders deliver their prognosis for the remainder of the year<i class="material-icons right">more_vert</i></span>
-                            <p><a class="waves-effect waves-light btn" href="  https://economictimes.indiatimes.com/news/company/corporate-trends/reimagining-business-business-leaders-deliver-their-prognosis-for-the-remainder-of-the-year/primeshow/75925479.cms  ">See More</a></p>
-                        </div>
-                        <div class="card-reveal">
-                        <span class="card-title activator grey-text text-darken-4">23 May, 2020, 05:39PM IST
-												
-                          <i class="material-icons right">close</i>
-                          <p class="activator">Consumers will be careful about spending, but digital business will rise. There will be more job opportunities for the talented people who abhorred the 9-to-5 office mould. As destruction and creation plays out at a global scale, we asked business leaders for their prognosis for the remainder of 2020, in their companies as well as their sectors.</p></span>
-                        </div>
-                     </div>  <div class="card">
-                        <div class="card-image waves-effect waves-block waves-light">
-                            <img height="200" class="activator" src="{% static 'Pics/4.jpg' %}">
-                        </div>
-                        <div class="card-content">
-                            <span class="card-title activator grey-text text-darken-4">Congress releases documentary on Rahul Gandhi's interaction with migrants<i class="material-icons right">more_vert</i></span>
-                            <p><a class="waves-effect waves-light btn" href="  https://economictimes.indiatimes.com/news/politics-and-nation/congress-releases-documentary-on-rahul-gandhis-interaction-with-migrants/articleshow/75912957.cms  ">See More</a></p>
-                        </div>
-                        <div class="card-reveal">
-                        <span class="card-title activator grey-text text-darken-4">23 May, 2020, 06:38AM IST
-												
-                          <i class="material-icons right">close</i>
-                          <p class="activator">At the end of the documentary, Gandhi says the government should immediately give Rs 7,500 to the 13 crore needy families through direct cash transfer.</p></span>
-                        </div>
-                     </div>  <div class="card">
-                        <div class="card-image waves-effect waves-block waves-light">
-                            <img height="200" class="activator" src="{% static 'Pics/5.jpg' %}">
-                        </div>
-                        <div class="card-content">
-                            <span class="card-title activator grey-text text-darken-4">New items in cart: Guitars and robot vacuums<i class="material-icons right">more_vert</i></span>
-                            <p><a class="waves-effect waves-light btn" href="  https://economictimes.indiatimes.com/industry/services/retail/new-items-in-cart-guitars-and-robot-vacuums/articleshow/75908910.cms  ">See More</a></p>
-                        </div>
-                        <div class="card-reveal">
-                        <span class="card-title activator grey-text text-darken-4">23 May, 2020, 04:37AM IST
-												
-                          <i class="material-icons right">close</i>
-                          <p class="activator">Buying patterns are largely getting dictated by life’s travails under lockdown, major online marketplaces and retail chains say. Denied the comfort of domestic help doing the cleaning, and/or the cook doing lunches and dinners, the relatively better off are buying more labour-saving household devices that get the job done.</p></span>
-                        </div>
-                     </div>  <div class="card">
-                        <div class="card-image waves-effect waves-block waves-light">
-                            <img height="200" class="activator" src="{% static 'Pics/6.jpg' %}">
-                        </div>
-                        <div class="card-content">
-                            <span class="card-title activator grey-text text-darken-4">20 doctors and 25 pregnant women test positive for COVID-19 in Kashmir<i class="material-icons right">more_vert</i></span>
-                            <p><a class="waves-effect waves-light btn" href="  https://economictimes.indiatimes.com/news/politics-and-nation/20-doctors-and-25-pregnant-women-test-positive-for-covid-19-in-kashmir/articleshow/75822957.cms  ">See More</a></p>
-                        </div>
-                        <div class="card-reveal">
-                        <span class="card-title activator grey-text text-darken-4">19 May, 2020, 08:13AM IST
-												
-                          <i class="material-icons right">close</i>
-                          <p class="activator">What makes things worst to handle in Kashmir is that around 20 doctors have tested positive till now in Kashmir and scores of health workers have been put into isolation, which poses a threat of crippling the health infrastructure and posing danger to frontline workers.</p></span>
-                        </div>
-                     </div>  <div class="card">
-                        <div class="card-image waves-effect waves-block waves-light">
-                            <img height="200" class="activator" src="{% static 'Pics/7.jpg' %}">
-                        </div>
-                        <div class="card-content">
-                            <span class="card-title activator grey-text text-darken-4">Naomi Osaka tops Serena Williams as world's highest-paid female athlete<i class="material-icons right">more_vert</i></span>
-                            <p><a class="waves-effect waves-light btn" href="  https://economictimes.indiatimes.com/news/sports/naomi-osaka-tops-serena-williams-as-worlds-highest-paid-female-athlete/articleshow/75902468.cms  ">See More</a></p>
-                        </div>
-                        <div class="card-reveal">
-                        <span class="card-title activator grey-text text-darken-4">22 May, 2020, 05:29PM IST
-												
-                          <i class="material-icons right">close</i>
-                          <p class="activator">Osaka, whose father was born in Haiti and whose mother is Japanese, ranks 29th on the 2020 Forbes list of the world's 100 top-paid athletes, four spots ahead of Williams, who has won 23 Grand Slam singles titles. The complete list, due to be released next week, has not featured two women since 2016, according to the magazine.</p></span>
-                        </div>
-                     </div>  <div class="card">
-                        <div class="card-image waves-effect waves-block waves-light">
-                            <img height="200" class="activator" src="{% static 'Pics/8.jpg' %}">
                         </div>
                         <div class="card-content">
                             <span class="card-title activator grey-text text-darken-4">Lana Del Rey slams critics who accused her of glamorising abuse; wants a place in feminism for women like her<i class="material-icons right">more_vert</i></span>
@@ -118,7 +44,35 @@
                         </div>
                      </div>  <div class="card">
                         <div class="card-image waves-effect waves-block waves-light">
-                            <img height="200" class="activator" src="{% static 'Pics/9.jpg' %}">
+                            <img height="200" class="activator" src="{% static 'Pics/3.jpg' %}">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-title activator grey-text text-darken-4">First buy, then try: Covid concern takes all the fun out of shopping in Delhi<i class="material-icons right">more_vert</i></span>
+                            <p><a class="waves-effect waves-light btn" href="  https://economictimes.indiatimes.com/industry/services/retail/first-buy-then-try-covid-concern-takes-all-the-fun-out-of-shopping-in-delhi/articleshow/75936922.cms  ">See More</a></p>
+                        </div>
+                        <div class="card-reveal">
+                        <span class="card-title activator grey-text text-darken-4">24 May, 2020, 06:23AM IST
+												
+                          <i class="material-icons right">close</i>
+                          <p class="activator">If shopping is your idea of post-lockdown therapy, it might leave you cold. Cautionary signs are everywhere. You need to await your turn if five shoppers are inside a store. At the door, greeters ask you to wear a mask, and at some places they press disposable gloves into your hands.</p></span>
+                        </div>
+                     </div>  <div class="card">
+                        <div class="card-image waves-effect waves-block waves-light">
+                            <img height="200" class="activator" src="{% static 'Pics/4.jpg' %}">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-title activator grey-text text-darken-4">20 doctors and 25 pregnant women test positive for COVID-19 in Kashmir<i class="material-icons right">more_vert</i></span>
+                            <p><a class="waves-effect waves-light btn" href="  https://economictimes.indiatimes.com/news/politics-and-nation/20-doctors-and-25-pregnant-women-test-positive-for-covid-19-in-kashmir/articleshow/75822957.cms  ">See More</a></p>
+                        </div>
+                        <div class="card-reveal">
+                        <span class="card-title activator grey-text text-darken-4">19 May, 2020, 08:13AM IST
+												
+                          <i class="material-icons right">close</i>
+                          <p class="activator">What makes things worst to handle in Kashmir is that around 20 doctors have tested positive till now in Kashmir and scores of health workers have been put into isolation, which poses a threat of crippling the health infrastructure and posing danger to frontline workers.</p></span>
+                        </div>
+                     </div>  <div class="card">
+                        <div class="card-image waves-effect waves-block waves-light">
+                            <img height="200" class="activator" src="{% static 'Pics/5.jpg' %}">
                         </div>
                         <div class="card-content">
                             <span class="card-title activator grey-text text-darken-4">AIIMS preparing database of critically ill patients to save them from coronavirus: Official<i class="material-icons right">more_vert</i></span>
@@ -129,6 +83,62 @@
 												
                           <i class="material-icons right">close</i>
                           <p class="activator">"People suffering from critical ailments are more at risk of contracting coronavirus than people in general. We have begun preparing a database of such patients to keep a watch on them in particular and save them from getting infected," nodal officer for COVID-19 cases at AIIMS, Rishikesh Madhur Uniyal said.</p></span>
+                        </div>
+                     </div>  <div class="card">
+                        <div class="card-image waves-effect waves-block waves-light">
+                            <img height="200" class="activator" src="{% static 'Pics/6.jpg' %}">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-title activator grey-text text-darken-4">Mahindra & Mahindra offers new finance schemes, special benefits for doctors, cops, women<i class="material-icons right">more_vert</i></span>
+                            <p><a class="waves-effect waves-light btn" href="  https://economictimes.indiatimes.com/industry/auto/auto-news/mahindra-mahindra-offers-new-finance-schemes-special-benefits-for-doctors-cops-women/articleshow/75826669.cms  ">See More</a></p>
+                        </div>
+                        <div class="card-reveal">
+                        <span class="card-title activator grey-text text-darken-4">19 May, 2020, 11:35AM IST
+												
+                          <i class="material-icons right">close</i>
+                          <p class="activator">The schemes include 50 per cent waiver on the processing fee and the option to "buy now, pay later" (with 90-day moratorium on payment) for the doctors' community, high funding scheme for police personnel while women customers will be entitled to a 10-basis point discount on the financing cost.</p></span>
+                        </div>
+                     </div>  <div class="card">
+                        <div class="card-image waves-effect waves-block waves-light">
+                            <img height="200" class="activator" src="{% static 'Pics/7.jpg' %}">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-title activator grey-text text-darken-4">Quarantine norms for inter-state travellers to Karnataka revised<i class="material-icons right">more_vert</i></span>
+                            <p><a class="waves-effect waves-light btn" href="  https://economictimes.indiatimes.com/news/politics-and-nation/quarantine-norms-for-inter-state-travellers-to-karnataka-revised/articleshow/75912887.cms  ">See More</a></p>
+                        </div>
+                        <div class="card-reveal">
+                        <span class="card-title activator grey-text text-darken-4">23 May, 2020, 06:36AM IST
+												
+                          <i class="material-icons right">close</i>
+                          <p class="activator">The revised standard operating procedure for quarantining considers people who are visiting the state for business activities as special cases, and mandates them to get Covid-19 report from the state of origin,</p></span>
+                        </div>
+                     </div>  <div class="card">
+                        <div class="card-image waves-effect waves-block waves-light">
+                            <img height="200" class="activator" src="{% static 'Pics/8.jpg' %}">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-title activator grey-text text-darken-4">Nuclear families have the most financial freedom: Survey<i class="material-icons right">more_vert</i></span>
+                            <p><a class="waves-effect waves-light btn" href="  https://economictimes.indiatimes.com/wealth/personal-finance-news/nuclear-families-have-the-most-financial-freedom-survey/articleshow/75915736.cms  ">See More</a></p>
+                        </div>
+                        <div class="card-reveal">
+                        <span class="card-title activator grey-text text-darken-4">25 May, 2020, 05:00AM IST
+												
+                          <i class="material-icons right">close</i>
+                          <p class="activator">According to the HDFC Life’s Life Freedom survey, people living in the metro have the highest financial awareness. However, people living in Tier-I cities are most meticulous about reviewing their financial plans.</p></span>
+                        </div>
+                     </div>  <div class="card">
+                        <div class="card-image waves-effect waves-block waves-light">
+                            <img height="200" class="activator" src="{% static 'Pics/9.jpg' %}">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-title activator grey-text text-darken-4">SC issues notices on a PIL by Muslim women<i class="material-icons right">more_vert</i></span>
+                            <p><a class="waves-effect waves-light btn" href="  https://economictimes.indiatimes.com/news/politics-and-nation/sc-issues-notices-on-a-pil-by-muslim-women/articleshow/75855701.cms  ">See More</a></p>
+                        </div>
+                        <div class="card-reveal">
+                        <span class="card-title activator grey-text text-darken-4">21 May, 2020, 02:13AM IST
+												
+                          <i class="material-icons right">close</i>
+                          <p class="activator">SC on Wednesday sought formal responses from the central and Maharashtra governments on a PIL filed by a Pune-based woman seeking entry into a local mosque. The woman claimed though she wrote seeking permission, there was no response.</p></span>
                         </div>
                      </div>  <div class="card">
                         <div class="card-image waves-effect waves-block waves-light">
@@ -149,18 +159,32 @@
                             <img height="200" class="activator" src="{% static 'Pics/11.jpg' %}">
                         </div>
                         <div class="card-content">
-                            <span class="card-title activator grey-text text-darken-4">Quarantine norms for inter-state travellers to Karnataka revised<i class="material-icons right">more_vert</i></span>
-                            <p><a class="waves-effect waves-light btn" href="  https://economictimes.indiatimes.com/news/politics-and-nation/quarantine-norms-for-inter-state-travellers-to-karnataka-revised/articleshow/75912887.cms  ">See More</a></p>
+                            <span class="card-title activator grey-text text-darken-4">The day Bachendri conquered the Everest and a lot more<i class="material-icons right">more_vert</i></span>
+                            <p><a class="waves-effect waves-light btn" href="  https://economictimes.indiatimes.com/news/sports/the-day-bachendri-conquered-the-everest-and-a-lot-more/articleshow/75914249.cms  ">See More</a></p>
                         </div>
                         <div class="card-reveal">
-                        <span class="card-title activator grey-text text-darken-4">23 May, 2020, 06:36AM IST
+                        <span class="card-title activator grey-text text-darken-4">23 May, 2020, 07:41AM IST
 												
                           <i class="material-icons right">close</i>
-                          <p class="activator">The revised standard operating procedure for quarantining considers people who are visiting the state for business activities as special cases, and mandates them to get Covid-19 report from the state of origin,</p></span>
+                          <p class="activator">Thirty-six years ago, on this very day, Uttarakhand’s Bachendri Pal became the first Indian woman to scale the highest peak in the world, shattering many a glass ceiling. Every moment of that glorious day still fresh in her mind, Bachendri shares with ET Sport her inspiring journey</p></span>
                         </div>
                      </div>  <div class="card">
                         <div class="card-image waves-effect waves-block waves-light">
                             <img height="200" class="activator" src="{% static 'Pics/12.jpg' %}">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-title activator grey-text text-darken-4">Women to bear brunt of new labour laws: Experts<i class="material-icons right">more_vert</i></span>
+                            <p><a class="waves-effect waves-light btn" href="  https://economictimes.indiatimes.com/news/politics-and-nation/women-to-bear-brunt-of-new-labour-laws-experts/articleshow/75794353.cms  ">See More</a></p>
+                        </div>
+                        <div class="card-reveal">
+                        <span class="card-title activator grey-text text-darken-4">18 May, 2020, 03:17AM IST
+												
+                          <i class="material-icons right">close</i>
+                          <p class="activator">Their concerns include likely suspension of benefits provided by the Maternity Benefits Act and equal renumeration, apart from not holding the employer accountable for providing safe working conditions such as adequate lighting, safety, food, water, transport for night shifts, or even paying double wages for overtime work as mandated earlier.</p></span>
+                        </div>
+                     </div>  <div class="card">
+                        <div class="card-image waves-effect waves-block waves-light">
+                            <img height="200" class="activator" src="{% static 'Pics/13.jpg' %}">
                         </div>
                         <div class="card-content">
                             <span class="card-title activator grey-text text-darken-4">Jahnabi Phookan appointed as National President of FICCI FLO<i class="material-icons right">more_vert</i></span>
@@ -174,31 +198,17 @@
                         </div>
                      </div>  <div class="card">
                         <div class="card-image waves-effect waves-block waves-light">
-                            <img height="200" class="activator" src="{% static 'Pics/13.jpg' %}">
-                        </div>
-                        <div class="card-content">
-                            <span class="card-title activator grey-text text-darken-4">Helping hands in foreign lands: Diaspora organisations helping thousands of stranded Indians<i class="material-icons right">more_vert</i></span>
-                            <p><a class="waves-effect waves-light btn" href="  https://economictimes.indiatimes.com/nri/returning-to-india/helping-hands-in-foreign-lands-diaspora-organisations-helping-thousands-of-stranded-indians/articleshow/75922144.cms  ">See More</a></p>
-                        </div>
-                        <div class="card-reveal">
-                        <span class="card-title activator grey-text text-darken-4">24 May, 2020, 04:39AM IST
-												
-                          <i class="material-icons right">close</i>
-                          <p class="activator">Among Indians stranded overseas are techies, tourists and visitors, apart from the labourers in Gulf.</p></span>
-                        </div>
-                     </div>  <div class="card">
-                        <div class="card-image waves-effect waves-block waves-light">
                             <img height="200" class="activator" src="{% static 'Pics/14.jpg' %}">
                         </div>
                         <div class="card-content">
-                            <span class="card-title activator grey-text text-darken-4">Concern over health of police personnel in Maharashtra, Gujarat amid Covid crisis<i class="material-icons right">more_vert</i></span>
-                            <p><a class="waves-effect waves-light btn" href="  https://economictimes.indiatimes.com/news/politics-and-nation/concern-over-health-of-police-personnel-in-maharashtra-gujarat-amid-covid-crisis/articleshow/75903072.cms  ">See More</a></p>
+                            <span class="card-title activator grey-text text-darken-4">New items in cart: Guitars and robot vacuums<i class="material-icons right">more_vert</i></span>
+                            <p><a class="waves-effect waves-light btn" href="  https://economictimes.indiatimes.com/industry/services/retail/new-items-in-cart-guitars-and-robot-vacuums/articleshow/75908910.cms  ">See More</a></p>
                         </div>
                         <div class="card-reveal">
-                        <span class="card-title activator grey-text text-darken-4">22 May, 2020, 06:08PM IST
+                        <span class="card-title activator grey-text text-darken-4">23 May, 2020, 04:37AM IST
 												
                           <i class="material-icons right">close</i>
-                          <p class="activator">While shortage of personal protective equipment has made the fight tougher, police personnel have also been finding it arduous to get tested. The two states, however, are now putting more focus on the health of their police forces to prepare them for the long haul. According to the Maharashtra police, as on Friday, 15 men and an officer had succumbed to the disease.</p></span>
+                          <p class="activator">Buying patterns are largely getting dictated by life’s travails under lockdown, major online marketplaces and retail chains say. Denied the comfort of domestic help doing the cleaning, and/or the cook doing lunches and dinners, the relatively better off are buying more labour-saving household devices that get the job done.</p></span>
                         </div>
                      </div> </div>
                         {% endblock %} 

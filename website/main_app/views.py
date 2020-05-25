@@ -6,6 +6,8 @@ from .forms import ContactForm
 from .models import contact
 from django.contrib.auth.models import User
 from .SmsSender import sendSms
+from .Scraper import news_fetch, write_news
+from os import getcwd
 
 
 # Create your views here.
@@ -160,4 +162,8 @@ def emergency(request):
 
 
 def news(request):
+    news_fetch()
+    write_news()
     return render(request, 'main_app/news.html', {'title':'news'} )
+
+
