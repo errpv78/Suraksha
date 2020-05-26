@@ -1,0 +1,23 @@
+code for sending multiple email a message
+
+import numpy 
+import smtplib
+li = [] 
+# number of elemetns as input 
+n = int(input("Enter number of elements : ")) 
+# iterating till the range 
+for i in range(0, n): 
+    ele = str(input()) 
+    li.append(ele)  
+for dest in li: 
+    s = smtplib.SMTP('smtp.gmail.com', 587) 
+    s.starttls() 
+    s.login("sender@gmail.com", "sender password") 
+    message = "Message_you_need_to_send"
+    s.sendmail("sender@gmail.com", dest, message) 
+    s.quit() 
+
+
+# instead of message we can generate random numbers for otp.. but a method (redirected link) is what we are looking upon..
+and for that just import random
+ranom.randit() instead of message
