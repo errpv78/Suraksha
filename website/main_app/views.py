@@ -166,4 +166,5 @@ def news(request):
     write_news()
     return render(request, 'main_app/news.html', {'title':'news'} )
 
-
+def corona_updates(request):
+    return render(request, 'main_app/corona_updates.html', {'title':'corona_updates'})

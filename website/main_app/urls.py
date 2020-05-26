@@ -35,6 +35,8 @@ urlpatterns = [
     path("emergency/", views.emergency, name="emergency"),
 
     path("news/", views.news, name="news"),
+    path("corona_updates", views.corona_updates, name="corona_updates"),
+
 
     # path('admin/', admin.site.urls),
 ]
