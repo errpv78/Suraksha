@@ -168,3 +168,6 @@ def news(request):
 
 def corona_updates(request):
     return render(request, 'main_app/corona_updates.html', {'title':'corona_updates'})
+
+def city_map(request):
+    return render(request, 'main_app/city_map.html', {'title':'city_map'})
