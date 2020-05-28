@@ -171,3 +171,6 @@ def corona_updates(request):
 
 def city_map(request):
     return render(request, 'main_app/city_map.html', {'title':'city_map'})
+
+def find_me(request):
+    return render(request, 'main_app/find_me.html', {'title':'current location'})

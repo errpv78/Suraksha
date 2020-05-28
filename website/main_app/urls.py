@@ -36,7 +36,10 @@ urlpatterns = [
 
     path("news/", views.news, name="news"),
     path("corona_updates/", views.corona_updates, name="corona_updates"),
-    path("city_map", views.city_map, name="city_map"),
+
+    path("city_map/", views.city_map, name="city_map"),
+    path("find_me/", views.find_me, name="find_me"),
+
 
     # path('admin/', admin.site.urls),
 ]
