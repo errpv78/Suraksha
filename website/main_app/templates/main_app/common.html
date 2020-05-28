@@ -16,6 +16,7 @@
         <script type = "text/javascript" src = "https://code.jquery.com/jquery-2.1.1.min.js"></script>
         <script src = "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>
 
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 
@@ -30,6 +31,26 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav mr-auto">
+
+               <!-- Dropdown Trigger -->
+              <li class="nav-item">
+                  <a class='dropdown-trigger nav-link' href='#' data-target='dropdown1'>Find </a>
+              </li>
+              <!-- Dropdown Structure -->
+              <ul id='dropdown1' class='dropdown-content'>
+                <li><a href="/corona_updates">Corona Updates</a></li>
+                <li><a href="/city_map">Find in city</a></li>
+                <li class="divider" tabindex="-1"></li>
+                <li><a href="/find_me">Find Me!</a></li>
+                <li><a href="#!"><i class="material-icons">view_module</i>four</a></li>
+                <li><a href="#!"><i class="material-icons">cloud</i>five</a></li>
+              </ul>
+              <script>
+                  $('.dropdown-trigger').dropdown({
+                    hover:true
+                  });
+              </script>
+
               <li class="nav-item">
                 <a class="nav-link" href="/women_rights">Women Rights <span class="sr-only">(current)</span></a>
               </li>
@@ -60,7 +81,6 @@
               </li>
 
             </ul>
-             <a class="nav-link" href="/corona_updates"><button style="border-radius: 4px;" class="btn info">CORONA UPDATES!</button></a>
             <a class="nav-link" href="/emergency"><button class="btn danger" formmethod="POST">EMERGENCY !!</button></a>
 
           </div>
