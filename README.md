@@ -1,31 +1,12 @@
 # Suraksha
-A web app to feature women related news articles, and crimes against women, and other ways for women safety
-
-Requirements:
-Python; Pip; Django; SQLite; twilio (pip install twilio)
+A web app for women safety and empowerment. It features women related news articles to highlight current women issues, and crimes against women, has an emergency button for connecting woman in need to their trusted ones, various maps features and awareness about women rights and laws.
 
 Run instructions:
-Linux:
-After clonning repository open a terminal from the repository folder and run command:
-./run.sh (for linux)
 
-Windows:
-1. Open Anaconda/cmd, **avoid using git bash**. 
-2. Change directory to the **website** folder in the project.
-3. Run the command **python manage.py runserver**
+After clonning repository open a terminal from the repository folder,
+install all the requirements from requirements.txt by running a command in terminal/cmd: 
+pip install -r requirements.txt
 
-It will display something like this:
-
--------------------------
-Watching for file changes with StatReloader
-Performing system checks...
-
-System check identified no issues (0 silenced).
-May 08, 2020 - 19:51:03
-Django version 3.0.6, using settings 'website.settings'
-Starting development server at http://127.0.0.1:8000/
-Quit the server with CTRL-BREAK.
-
--------------------------
-Copy **http://127.0.0.1:8000/** and run it on the browser.
+To run the webapp server:
+./run.sh 
 
