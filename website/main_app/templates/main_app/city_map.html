@@ -1,36 +1,126 @@
 <!DOCTYPE html>
-{% extends "main_app/common.html" %}
 {% load static %}
+<html lang="en">
+    <head>
 
-{% block content %}
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
-    <html xmlns="http://www.w3.org/1999/xhtml"lang="en" xml:lang="en">
-        <head>
-            <title>MapmyIndia Maps API: Map properties and events</title>
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+        <!-- Compiled and minified CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+        <!-- Compiled and minified JavaScript -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <script type = "text/javascript" src = "https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script src = "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
             <link rel="icon" href="http://mapmyindia.com/images/favicon.ico" type="image/x-icon">
-            <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
             <style type="text/css">
-                html { height: 80%; }
-                body { height: 80%;font-family:Verdana,sans-serif, Arial;color:#000;margin: 0; font-size:14px; padding: 0; }
                  #map {
-                    position: absolute;
-                    left: 312px; top: 46px;
+                    left: 2px; top: 1px;
                     right: 2px; bottom: 2px;
-                    border: 1px solid #cccccc; }
+                    border: 1px solid #cccccc;
+                    margin-top:20px;
+                    margin-right:20px;
+                    height:1000px;
+                    width:1540px;
+                    }
                 #result {
-                    position: absolute;
                     left: 2px; top: 46px;
                     width: 306px;
                     bottom: 2px;
                     border: 1px solid #cccccc;
                     background-color: #FAFAFA;
                     overflow: auto;
-                }
+                    margin-top:20px;
+                    margin-right:20px;
+                    height:1000px;
+                    width:310px;
+                    }
                  button{width: 220px;font-family:Verdana,sans-serif, Arial;font-size:12px;padding:2px 0;color:#333}
             </style>
             <link rel="stylesheet" href="css/leaflet.css" />
             <!--put your map api javascript url with key here-->
             <script src="https://apis.mapmyindia.com/advancedmaps/v1/oehzgx54nik3ur7upodu32splbu6gxw5/map_load?v=1.5"></script>
+
+    </head>
+
+    <body>
+
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+          <a class="navbar-brand" href="/home">Suraksha: Empowering Women</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav mr-auto">
+
+               <!-- Dropdown Trigger -->
+              <li class="nav-item">
+                  <a class='dropdown-trigger nav-link' href='#' data-target='dropdown1'>Find </a>
+              </li>
+              <!-- Dropdown Structure -->
+              <ul id='dropdown1' class='dropdown-content'>
+                <li><a href="/corona_updates">Corona Updates</a></li>
+                <li><a href="/city_map">Find in city</a></li>
+                <li class="divider" tabindex="-1"></li>
+                <li><a href="/find_me">Find Me!</a></li>
+                <li><a href="#!"><i class="material-icons">view_module</i>four</a></li>
+                <li><a href="#!"><i class="material-icons">cloud</i>five</a></li>
+              </ul>
+              <script>
+                  $('.dropdown-trigger').dropdown();
+              </script>
+
+              <li class="nav-item">
+                <a class="nav-link" href="/women_rights">Women Rights <span class="sr-only">(current)</span></a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="/news">Quick Glance<span class="sr-only">(current)</span></a>
+              </li>
+
+
+              {% if user.is_authenticated %}
+                  <li class="nav-item">
+                    <a class="nav-link" href="/account">{{user.username}}</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/logout">Logout</a>
+                  </li>
+              {% else %}
+                  <li class="nav-item">
+                    <a class="nav-link" href="/register">Register</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/login">Login</a>
+                  </li>
+              {% endif %}
+
+              <li class="nav-item">
+                <a class="nav-link" href="/emergency_contact">Emergency Contacts</a>
+              </li>
+
+            </ul>
+            <a class="nav-link" href="/emergency"><button class="btn danger" formmethod="POST">EMERGENCY !!</button></a>
+
+          </div>
+        </nav>
+
+        {% if messages %}
+            {% for message in messages %}
+                <script>M.toast({html: "{{message}}", classes: 'blue rounded',
+                displayLength:4000});</script>
+            {% endfor %}
+        {% endif %}
+
+
+            <br>
             <script>
                 var map = null;
                 window.onload = function() {
@@ -130,12 +220,9 @@
                     event_div.innerHTML= "Zoom level set to: "+ zoom +event_div.innerHTML;
                 }
             </script>
-        </head>
-        <body>
-            <div style="border-bottom: 1px solid #e9e9e9;padding:10px 12px;"><span style="font-size: 20px">MapmyIndia Maps API: </span><span style="font-size:16px;color:#777">Map Properties and Events</span></div>
-
-    <div id="result">
-    <div style="padding: 16px 12px 6px 38px"><button onclick="mapmyindia_current_zoom_level()" style="width: 220px;">Get current zoom level</button></div>
+            <div class="container" style="height:100%;, width:100%; display: table-row">
+            <div id="result" style="display: table-cell;">
+            <div style="padding: 16px 12px 6px 38px"><button onclick="mapmyindia_current_zoom_level()" style="width: 220px;">Get current zoom level</button></div>
                 <div style="padding: 6px 12px 6px 38px;"><button onclick="mapmyindia_current_center_location()" style="width: 220px;">Get current map center</button></div>
                 <div style="padding: 6px 12px 6px 38px;"><button onclick="mapmyindia_current_bound()" style="width: 220px;">Get current map bound</button></div>
                 <div style="padding: 6px 12px 6px 38px;"><button onclick="mapmyindia_map_pan()" style="width: 220px;">Map pan</button></div>
@@ -154,8 +241,40 @@
                 <div style="padding:14px 12px 6px 38px;color: #666;">Event Logs</div>
                 <div style="padding:6px 12px 6px 38px;color: #777; font-size: 12px; line-height: 22px;" id="event-log"></div>
             </div>
-            <div id="map"></div>
-        </body>
-    </html>
+            <div id="map" style="display: table-cell;"></div>
+            </div>
 
-{% endblock %}
+
+
+
+
+        <br>
+        <footer class="page-footer" style="background-color: #000000">
+          <div class="container">
+            <div class="row">
+              <div class="col l6 s12">
+                <h5 class="white-text">Footer Content</h5>
+                <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+              </div>
+              <div class="col l4 offset-l2 s12">
+                <h5 class="white-text">Links</h5>
+                <ul>
+                  <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
+                  <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
+                  <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
+                  <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="footer-copyright">
+            <div class="container">
+            © 2014 Copyright Text
+            <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+            </div>
+          </div>
+        </footer>
+
+
+    </body>
+</html>

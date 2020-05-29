@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Map Embed</title>
+</head>
+<body>
+    <h1>Hello Map</h1>
+
+         <script src="https://apis.mapmyindia.com/advancedmaps/v1/oehzgx54nik3ur7upodu32splbu6gxw5/map_load?v=1.5"></script>
+                <style>
+                    html, body, #map {	 width: 90%;height: 100%;}
+                    #map{
+                        margin-left:30px;
+                    }
+
+                </style>
+            <div id="map"></div>
+        <script>
+
+        var map=new MapmyIndia.Map("map",{ center:[30.665246999999997, 76.8817716], zoomControl: true, hybrid:true, search:true, location:true});
+
+         </script>
+
+</body>
+</html>
