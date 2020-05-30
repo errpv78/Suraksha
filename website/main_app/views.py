@@ -8,6 +8,7 @@ from django.contrib.auth.models import User
 from .SmsSender import sendSms
 from .Scraper import news_fetch, write_news
 from os import getcwd
+from .mail import send_mail
 
 
 # Create your views here.
@@ -97,7 +98,11 @@ def create_contact(request):
         if form.is_valid():
             form.save()
             messages.info(request, f"New contact created successfully!!")
-            # request.user.contact.add(form)
+            name = form.cleaned_data.get('name')
+            mail = form.cleaned_data.get('email')
+            message = "Hello, " + name + "\nYour contact information has been saved as emergency contact by " + curr.username + "."
+            send_mail(mail, message)
+            messages.info(request, f"An email has been sent to your contact!!")
             return redirect('main_app:emergency_contact')
 
         messages.error(request, f"Invalid username or password")
@@ -107,6 +112,13 @@ def create_contact(request):
 
 
 def update_contact(request, pk):
+    users = User.objects.all()
+    curr = 0
+    for user in users:
+        if request.user.is_authenticated:
+            curr = user
+            break
+
     curr_contact = contact.objects.get(id=pk)
     name = curr_contact.name
     form = ContactForm
@@ -116,6 +128,12 @@ def update_contact(request, pk):
         if form.is_valid():
             form.save()
             messages.error(request, f"{name} updated successfully!!")
+            name = form.cleaned_data.get('name')
+            mail = form.cleaned_data.get('email')
+            message = "Hello, " + name + "\nYour contact information as emergency contact by " + curr.username + " has been updated."
+            send_mail(mail, message)
+            messages.info(request, f"An email has been sent to your contact!!")
+
             return redirect('main_app:emergency_contact')
 
     context = {'form': form}
