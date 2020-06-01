@@ -195,3 +195,6 @@ def find_me(request):
 
 def women_laws(request):
     return render(request, 'main_app/women_laws.html', {'title': 'women_laws'})
+
+def helpline_numbers(request):
+    return render(request, 'main_app/helpline_numbers.html', {'title': 'helpline_numbers'})

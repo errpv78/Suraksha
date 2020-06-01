@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+{% extends "main_app/common.html" %}
+{% load static %}
+
+<html lang="en">
+    {% block content %}
+    <script src="../../static/js-files/jquery-3.5.1.js"></script>
+    <script type="text/javascript" src="../../static/js-files/jquery-jvectormap-2.0.5.min.js"></script>
+     <script src="../../static/js-files/jquery-jvectormap-in-merc.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../static/js-files/jquery-jvectormap-2.0.5.css">
+
+    <h2>Women Helpine Numbers Across The Country</h2>
+    <h6>(Hover on the state to get info)</h6>
+    <h5>(The development team doesn't completely agree with the map that is displayed on the web-page where some part of India is not treated as part
+        of India, this map has been taken from a source where it was this way, and was displayed only due to lack of alternate resources.)</h5>
+    <div id="map" style="width: 1250px; height: 1000px"></div>
+    <script>
+        $(function(){
+            $('#map').vectorMap({map: 'in_merc',
+            backgroundColor: '#676767',
+            mapColor: '#B9D9F7',
+            series: {
+                regions: [{
+                    values: {
+                    INBR: 'SPORTS & OUTDOOR'
+                    }
+                }]
+            }
+
+            });
+        });
+    </script>
+
+
+    {% endblock %}
+
+
+
+</html>

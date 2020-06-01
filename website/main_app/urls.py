@@ -41,6 +41,8 @@ urlpatterns = [
     path("find_me/", views.find_me, name="find_me"),
     path("women_laws/", views.women_laws, name="women_laws"),
 
+    path("helpline_numbers/", views.helpline_numbers, name="helpline_numbers"),
+
 
     # path('admin/', admin.site.urls),
 ]
