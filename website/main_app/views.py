@@ -192,3 +192,6 @@ def city_map(request):
 
 def find_me(request):
     return render(request, 'main_app/find_me.html', {'title':'current location'})
+
+def women_laws(request):
+    return render(request, 'main_app/women_laws.html', {'title': 'women_laws'})

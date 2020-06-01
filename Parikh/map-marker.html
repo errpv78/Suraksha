@@ -91,7 +91,7 @@
             var pth = window.location.href;/*get path of image folder*/
             var full_path = pth.replace(pth.substr(pth.lastIndexOf('/') + 1), '');
             window.onload = function () {
-                map = new MapmyIndia.Map('map', {center: [30.7333, 76.7794], zoomControl: true, hybrid: true});
+                map = new MapmyIndia.Map('map', {center: [28.549948, 77.268241], zoomControl: true, hybrid: true});
                 /***
                  1. Create a MapmyIndia Map by simply calling new MapmyIndia.Map() and passing it a html div id, all other parameters are optional...
                  2. All leaflet mapping functions can be called simply by using "L" object.
@@ -108,6 +108,13 @@
             function addMarker(position, icon, title, draggable) {
                 /* position must be instance of L.LatLng that replaces current WGS position of this object. Will always return current WGS position.*/
                 var event_div = document.getElementById("event-log");
+                var icon = L.divIcon({
+                        className: 'my-div-icon',
+                        html: "<img class='map_marker'  src=" + "'https://maps.mapmyindia.com/images/2.png'>" + '<span class="my-div-span">' + (i + 1) + '</span>',
+                        iconSize: [10, 10],
+                        popupAnchor: [12, -10]
+                });/*function that creates a div over a icon and display content on the div*/
+
                 if (icon == '') {
                     var mk = new L.Marker(position, {draggable: draggable, title: title});/*marker with a default icon and optional param draggable, title */
                     mk.bindPopup(title);
@@ -123,6 +130,7 @@
 
                 return mk;
             }
+
 
             function mapmyindia_fit_markers_into_bound() {
                 var maxlat = Math.max.apply(null, latitudeArr);

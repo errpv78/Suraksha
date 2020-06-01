@@ -13,6 +13,19 @@
         <script>
 
         var map=new MapmyIndia.Map("map",{ center:[30.665246999999997, 76.8817716], zoomControl: true, hybrid:true, search:true, location:true});
+        var icon = L.divIcon({
+             className: 'my-div-icon',
+             html: "<img class='map_marker'  src=" + "'https://maps.mapmyindia.com/images/2.png'>" ,
+             iconSize: [10, 10],
+             popupAnchor: [12, -10]
+        });/*function that creates a div over a icon and display content on the div*/
+
+        var position = new L.LatLng(30.665246999999997, 76.8817716);/*The WGS location object*/
+        var title = "Sample marker!";
+        var mk = new L.Marker(position, {icon: icon, title: title});/*marker with a custom icon */
+        mk.bindPopup(title);
+        map.addLayer(mk);
+
 
          </script>
 	</body>

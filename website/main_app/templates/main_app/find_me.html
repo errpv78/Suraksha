@@ -14,9 +14,9 @@
     </style>
 
 
-    <p>Click the button to get your coordinates.</p>
+    <h5><strong>Click the button to get your coordinates.</strong></h5>
 
-    <button id="find-me" onclick="getLocation()">Try It</button>
+    <button class="btn btn-outline-info" id="find-me" onclick="getLocation()">My Location</button>
 
     <p id="demo"></p>
 
@@ -27,12 +27,24 @@
 
         var lat = 30;
         var long = 78;
+        var icon = L.divIcon({
+             className: 'my-div-icon',
+             html: "<img class='map_marker'  src=" + "'https://maps.mapmyindia.com/images/2.png'>" ,
+             iconSize: [10, 10],
+             popupAnchor: [12, -10]
+        });/*function that creates a div over a icon and display content on the div*/
+        var title = "Your Location!";
+
         function showPosition(position) {
-            x.innerHTML="Latitude: " + position.coords.latitude +
-            "<br>Longitude: " + position.coords.longitude;
+            x.innerHTML="<hr>Your Latitude: " + position.coords.latitude +
+            "<br>Your Longitude: " + position.coords.longitude;
             lat = position.coords.latitude;
             long = position.coords.longitude;
             var map=new MapmyIndia.Map("map",{ center:[lat, long], zoomControl: true, hybrid:true, search:true, location:true});
+            var position = new L.LatLng(lat, long);/*The WGS location object*/
+            var mk = new L.Marker(position, {icon: icon, title: title});/*marker with a custom icon */
+            mk.bindPopup(title);
+            map.addLayer(mk);
         }
 
         function getLocation() {

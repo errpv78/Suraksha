@@ -11,7 +11,10 @@ import time
 def news_fetch():
     cwd = os.getcwd()
 
-    cwd += "/main_app"
+    if platform == "linux" or platform == "linux2":
+        cwd += "/main_app"
+    else:
+        cwd += "\main_app"
     # Updating db
     conn = sqlite3.connect('newsdb.db')
     # print("Opened database successfully")
@@ -93,8 +96,11 @@ def write_news():
 
     cwd = os.getcwd()
     file_name = cwd
-    file_name+= "/main_app"
-    file_name +=   "/templates/main_app/news.html"
+
+    if platform == "linux" or platform == "linux2":
+        file_name +=   "/main_app/templates/main_app/news.html"
+    else:
+        file_name += "\main_app\templates\main_app\news.html"
     # print(file_name)
     file = open(file_name, "w+")
     conn = sqlite3.connect('newsdb.db')

@@ -11,3 +11,5 @@ def send_mail(dest, message):
     else:
         print("invalid email")
     s.quit()
+
+# print(send_mail("parikhgoyal13@gmail.com", "hi"))

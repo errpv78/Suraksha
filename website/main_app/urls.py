@@ -39,6 +39,7 @@ urlpatterns = [
 
     path("city_map/", views.city_map, name="city_map"),
     path("find_me/", views.find_me, name="find_me"),
+    path("women_laws/", views.women_laws, name="women_laws"),
 
 
     # path('admin/', admin.site.urls),
