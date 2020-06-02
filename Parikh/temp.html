@@ -1,68 +1,30 @@
 <!DOCTYPE html>
 <html>
-<head>
-<title></title>
-<style>
-#content { position: relative }
-#content a { display: block }
-#menu1, #menu2, #menu3, #menu4 { display: none }
-#menu1 { position: absolute; top: 50px; left: 300px }
-#menu2 { position: absolute; top: 100px; left: 300px }
-#menu3 { position: absolute; top: 250px; left: 20px }
-#menu4 { position: absolute; top: 250px; left: 150px }
-</style>
-<script>
-function showMenu(menuId)  {
-//hide all the menus
-	menus=["menu1","menu2","menu3","menu4"];
-	while( menus.length) menu( menus.shift() ,"none");
-//display the menu for this area of the image
-	menu( menuId,"block");//document.getElementById(menuId).style.display="block";
-}
+	<head>
+		<title>Generate a Text File</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			// create the text file as a Blob:
+			var blob = new Blob(["hello world"],{type: "text/plain"});
+			// download the file:
+			download(blob,"text-file.txt");
+			function download(blob,name) {
+				var url = URL.createObjectURL(blob),
+					div = document.createElement("div"),
+					anch = document.createElement("a");
+				document.body.appendChild(div);
+				div.appendChild(anch);
+				anch.innerHTML = "&nbsp;";
+				div.style.width = "0";
+				div.style.height = "0";
+				anch.href = url;
+				anch.download = name;
 
-function menu( m, act ){
-	document.getElementById(m).style.display = act;
-}
-</script>
-</head>
-<body>
-<div id="content">
-	<img src="src.png" alt="alt text" usemap="#patchMap" />
-	<div id="menu1">
-		<h1>Menu 1</h1>
-		<a href="link1.htm">Link1</a>
-		<a href="link2.htm">Link2</a>
-		<a href="link3.htm">Link3</a>
-		<a href="link4.htm">Link4</a>
-	</div>
-	<div id="menu2">
-		<h1>Menu 2</h1>
-		<a href="link1.htm">Link1</a>
-		<a href="link2.htm">Link2</a>
-		<a href="link3.htm">Link3</a>
-		<a href="link4.htm">Link4</a>
-	</div>
-	<div id="menu3">
-		<h1>Menu 3</h1>
-		<a href="link1.htm">Link1</a>
-		<a href="link2.htm">Link2</a>
-		<a href="link3.htm">Link3</a>
-		<a href="link4.htm">Link4</a>
-	</div>
-	<div id="menu4">
-		<h1>Menu 4</h1>
-		<a href="link1.htm">Link1</a>
-		<a href="link2.htm">Link2</a>
-		<a href="link3.htm">Link3</a>
-		<a href="link4.htm">Link4</a>
-	</div>
-</div>
-<map name="patchMap" id="patchMap" >
-   <area shape="rect" coords="0,0,100,100" onclick="showMenu('menu1');" />
-   <area shape="rect" coords="100,0,200,100" onclick="showMenu('menu2');" />
-   <area shape="rect" coords="0,100,100,200" onclick="showMenu('menu3');" />
-   <area shape="rect" coords="100,100,200,200" onclick="showMenu('menu4');" />
-
-</map>
-</body>
+				var ev = new MouseEvent("click",{});
+				anch.dispatchEvent(ev);
+				document.body.removeChild(div);
+			}
+		</script>
+	</body>
 </html>

@@ -122,7 +122,16 @@
 
             <br>
             <script>
+                var icon = L.divIcon({
+                     className: 'my-div-icon',
+                     html: "<img class='map_marker'  src=" + "'https://maps.mapmyindia.com/images/2.png'>" ,
+                     iconSize: [10, 10],
+                     popupAnchor: [12, -10]
+                });/*function that creates a div over a icon and display content on the div*/
+                var title = "City Center!";
+
                 var map = null;
+
                 window.onload = function() {
 
                     var centre = new L.LatLng(30.7333, 76.7794);
@@ -130,6 +139,10 @@
                         /*1.create a MapmyIndia Map by simply calling new MapmyIndia.Map() and passsing it at the minimum div object, all others are optional...
                         2.all leaflet mapping functions can be called simply on the L object
                         3.MapmyIndia may extend and in future modify the customised/forked Leaflet object to enhance mapping functionality for developers, which will be clearly documented in the MapmyIndia API documentation section.*/
+                    var position = new L.LatLng(30.7333, 76.7794);/*The WGS location object*/
+                    var mk = new L.Marker(position, {icon: icon, title: title});/*marker with a custom icon */
+                    mk.bindPopup(title);
+                    map.addLayer(mk);
 
                     var event_div = document.getElementById("event-log");
                     /***map-events****/
