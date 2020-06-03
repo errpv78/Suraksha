@@ -4,7 +4,7 @@ from pprint import pprint
 key = 'd25ac72e7a1e43b8a2d3c939895889d1'
 geocoder = OpenCageGeocode(key)
 
-results = geocoder.reverse_geocode(30.6652274, 76.88169309999999)
+results = geocoder.reverse_geocode(30.7366, 76.7925)
 pprint(results)
 # [{'components': {'city': 'Bordeaux',
 #                  'country': 'France',
