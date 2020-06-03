@@ -2,29 +2,6 @@
 {% load static %}
 
 <html lang="en">
-<style>
-
-.jumbotron {
-  position: relative;
-  background:none;
-}
-.jumbotron:after {
-    content : "";
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background-image: url(https://placebear.com/g/900/300);
-    background-repeat: no-repeat;
-    background-position: center;
-  background-size: cover;
-    width: 100%;
-    height: 100%;
-    opacity : 0.2;
-    z-index: -1;
-}
-
-</style>
     <head>
 
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -39,11 +16,22 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <style>
+
+        </style>
     </head>
 
-
         <nav class="navbar navbar-expand-lg transparent z-depth-0" style="position:absolute">
-            <a class="navbar-brand" href="/home"><h3>Suraksha: Empowering Women</h3></a>
+            <img class="materialboxed" style="margin-top:10px; margin-right:10px" height="50" width="50" src="{% static 'Images/Logo.png' %}">
+            <script>
+                $(document).ready(function(){
+                    $('.materialboxed').materialbox();
+                });
+
+            </script>
+            <a class="navbar-brand" href="/home"><h3>  Suraksha: Empowering Women</h3></a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -52,36 +40,41 @@
 
                <!-- Dropdown Trigger -->
               <li class="nav-item">
-                  <a class='dropdown-trigger nav-link' href='#' data-target='dropdown1'>Find </a>
+                  <a class='dropdown-trigger nav-link' href='#' data-target='dropdown1'>☰ Maps </a>
               </li>
               <!-- Dropdown Structure -->
-              <ul id='dropdown1' class='dropdown-content'>
-                <li><a href="/corona_updates">Corona Updates</a></li>
-                <li><a href="/city_map">Find in city</a></li>
+              <ul id='dropdown1' class='dropdown-content' style="background-color: #f1f1f1;">
+                <li><a style="color: #000000;" href="/corona_updates">Corona Updates</a></li>
+                <li><a style="color: #000000;" href="/city_map">Find in city</a></li>
                 <li class="divider" tabindex="-1"></li>
-                <li><a href="/find_me">Find Me!</a></li>
-                <li><a href="#!"><i class="material-icons">view_module</i>four</a></li>
-                <li><a href="#!"><i class="material-icons">cloud</i>five</a></li>
+                <li><a style="color: #000000;" href="/find_me">Find Me!</a></li>
+                <li><a style="color: #000000;" href="#!"><i class="material-icons">view_module</i>four</a></li>
+                <li><a style="color: #000000;" href="#!"><i class="material-icons">cloud</i>five</a></li>
               </ul>
               <script>
-                  $('.dropdown-trigger').dropdown();
+                  $('.dropdown-trigger').dropdown({
+                      coverTrigger:false
+                  });
               </script>
 
+               <!-- Dropdown Trigger -->
+              <li class="nav-item">
+                  <a class='dropdown-trigger nav-link' href='#' data-target='dropdown2'>☰ Women </a>
+              </li>
+              <!-- Dropdown Structure -->
+              <ul id='dropdown2' class='dropdown-content' style="background-color: #f1f1f1;">
+                <li><a style="color: #000000;" href="/women_rights">Women Rights</a></li>
+                <li><a style="color: #000000;" href="/women_laws">Women Laws </a></li>
+                <li><a style="color: #000000;" href="/helpline_numbers">Women Helpline Numbers</a></li>
+                <li><a style="color: #000000;" href="/news">Quick Glance</a></li>
+                <li><a style="color: #000000;" href="#!"><i class="material-icons">cloud</i>five</a></li>
+              </ul>
+              <script>
+                  $('.dropdown-trigger').dropdown({
+                      coverTrigger:false
+                  });
+              </script>
 
-
-              <li class="nav-item">
-                <a class="nav-link" href="/women_rights">Women Rights <span class="sr-only">(current)</span></a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/women_laws">Women Laws <span class="sr-only">(current)</span></a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/helpline_numbers">Women Helpline Numbers <span class="sr-only">(current)</span></a>
-              </li>
-
-              <li class="nav-item">
-                <a class="nav-link" href="/news">Quick Glance<span class="sr-only">(current)</span></a>
-              </li>
 
               {% if user.is_authenticated %}
                   <li class="nav-item">

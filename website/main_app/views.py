@@ -9,6 +9,8 @@ from .SmsSender import sendSms
 from .Scraper import news_fetch, write_news
 from os import getcwd
 from .mail import send_mail
+from .emergency_location import get_current_Location
+from .add_chromedriver  import add_to_path
 
 
 # Create your views here.
@@ -152,6 +154,7 @@ def delete_contact(request, pk):
     return render(request, 'main_app/delete_contact.html', context)
 
 def emergency(request):
+    add_to_path()
     users = User.objects.all()
     curr = 0
     for user in users:
@@ -164,6 +167,9 @@ def emergency(request):
     contacts = contact.objects.filter(user=user)
     name = user.username
     message = name+" is in emergency situation and need your help immediately!!"
+    loc = ""
+    loc = get_current_Location()
+    message += loc
     try:
         sendSms("8350815015", message)
     except:
