@@ -14,5 +14,5 @@ def sendSms(phone_number,message):
                            from_ = "+12059904359", 
                            body = message)
     
-    print("Message Sent")
+    # print("Message Sent")
 

@@ -21,7 +21,7 @@ def get_current_Location():
     driver = webdriver.Chrome(executable_path = driver_path, options=options)
     driver.get("https://mycurrentlocation.net/")
     wait = WebDriverWait(driver, timeout)
-    time.sleep(3)
+    # time.sleep(3)
     longitude = driver.find_elements_by_xpath('//*[@id="longitude"]')
     longitude = [x.text for x in longitude]
     longitude = str(longitude[0])
@@ -32,7 +32,12 @@ def get_current_Location():
     key = 'd25ac72e7a1e43b8a2d3c939895889d1'
     geocoder = OpenCageGeocode(key)
 
-    results = geocoder.reverse_geocode(float(latitude), float(longitude))
+    if latitude is None or longitude is None:
+        return "Could not find coordinates"
+    try:
+        results = geocoder.reverse_geocode(float(latitude), float(longitude))
+    except:
+        return str(latitude)+str(longitude)
     # print(type(results))
 
     location = results[0]["formatted"]

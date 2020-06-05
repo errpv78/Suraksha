@@ -17,26 +17,39 @@
 
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta content="text/html; charset=iso-8859-2" http-equiv="Content-Type">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
 
         <style>
+            .mySlides {display:none;}
+            .parallax-container {
+                height: 650px;
+            }
 
         </style>
     </head>
 
-        <nav class="navbar navbar-expand-lg transparent z-depth-0" style="position:absolute">
-            <img class="materialboxed" style="margin-top:10px; margin-right:10px" height="50" width="50" src="{% static 'Images/Logo.png' %}">
+        <nav class="navbar navbar-expand-lg " style="background-color:black; height:80px;" >
+            <img class="materialboxed" style="margin:10px" height="50" width="50" src="{% static 'Images/Logo.png' %}">
             <script>
                 $(document).ready(function(){
                     $('.materialboxed').materialbox();
                 });
 
             </script>
-            <a class="navbar-brand" href="/home"><h3>  Suraksha: Empowering Women</h3></a>
+
+
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav mr-auto">
+
+              <li class="nav-item">
+                  <a class='nav-link' href='/home'>Home </a>
+              </li>
 
                <!-- Dropdown Trigger -->
               <li class="nav-item">
@@ -78,7 +91,7 @@
 
               {% if user.is_authenticated %}
                   <li class="nav-item">
-                    <a class="nav-link" href="/account">{{user.username}}</a>
+                    <a class="nav-link disabled" href="/account">{{user.username}}</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="/logout">Logout</a>
@@ -109,13 +122,76 @@
             {% endfor %}
         {% endif %}
 
-
-    <div>
-        <img height="650" width="100%" ' src="{% static 'Images/w1.jpg' %}">
+    <div class="w3-content w3-section" style="max-width:100%" style="padding:None; margin:None; position:absolute;">
+          <div><img height="600" width="100%" class="mySlides" src="{% static 'Images/slideshow/ada.jpg' %}"></div>
+          <div><img height="600" width="100%" class="mySlides" src="{% static 'Images/slideshow/kalpana.jpg' %}"></div>
+          <div><img height="600" width="100%" class="mySlides" src="{% static 'Images/slideshow/mother_teresa.jpg' %}"></div>
     </div>
-        <h1>Welcome to home!!</h1>
+
+    <script>
+
+        var myIndex = 0;
+        carousel();
+
+        function carousel() {
+          var i;
+          var x = document.getElementsByClassName("mySlides");
+          for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
+          }
+          myIndex++;
+          if (myIndex > x.length) {myIndex = 1}
+          x[myIndex-1].style.display = "block";
+          setTimeout(carousel, 5000); // Change image every 2 seconds
+        }
+    </script>
+
+        <div style="text-align:center; max-width:100%" class="container">
+            <marquee width="100%" direction="left" height="30%">
+                Welcome to suraksha!. We beleive, women empowerment is necessary for bright future of our great country.
+                Women security is one of the biggest concerns of our country today, and everyone has the responsibilty
+                and duty to contribute to women safety and in turn move towards a better and safer world!!
+            </marquee>
+        </div>
 
 
+    <ul class="collapsible">
+        <li>
+          <div class="collapsible-header"><i class="material-icons">add_box</i>India ranked poor for women safety.</div>
+          <div class="collapsible-body"><span>The Georgetown Institute for Women, Peace and Security(GIWPS), America in collaboration
+              with The Peace Research Institute of Oslo (PRIO), Norway, released its 2nd edition of the report titled Women, Peace, and
+              Security (WPS) Index for the year 2019. India was ranked 133rd out of 167 countries.</span></div>
+        </li>
+        <li>
+          <div class="collapsible-header"><i class="material-icons">add_box</i>A rape in India every 15 minutes.</div>
+          <div class="collapsible-body"><span>In India, a rape is reported every 15 minutes, according to recently released official
+              government crime data. The National Crime Records Bureau (NCRB) data from 2018 has stark revelations about crime in the
+              country. In almost 94 per cent of the cases, the offenders were known to the victims - family members, friends, live-in
+              partners, employers or others, the data showed.</span></div>
+        </li>
+        <li>
+          <div class="collapsible-header"><i class="material-icons">add_box</i>99% of voilence faced by women go unnoticed.</div>
+          <div class="collapsible-body"><span>According to, National Family Health Survey (NFHS) average Indian woman is 17 times more
+              likely to face sexual violence from her husband than from others. Only 3.5% of victims of violence reported seeking the
+              help of police. In states such as Bihar, Uttar Pradesh and Jharkhand, less than 0.5% of incidents of violence against women
+              were reported. Tamil Nadu and Karnataka also saw very low reporting of such crimes despite a higher female literacy rate.</span></div>
+        </li>
+    </ul>
+    <script>
+        $(document).ready(function(){
+            $('.collapsible').collapsible();
+          });
+    </script>
+
+
+    <div class="parallax-container" >
+        <div class="parallax"><img height="850" width="100%" src="{% static 'Images/crimes-against-women.jpg' %}"></div>
+    </div>
+    <script>
+        $(document).ready(function(){
+            $('.parallax').parallax();
+          });
+    </script>
 
         <footer class="page-footer" style="background-color: #000000">
           <div class="container">
@@ -127,18 +203,15 @@
               <div class="col l4 offset-l2 s12">
                 <h5 class="white-text">Links</h5>
                 <ul>
-                  <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+                  <li><a class="grey-text text-lighten-3" href="/developers">Developers Page</a></li>
                 </ul>
               </div>
             </div>
           </div>
           <div class="footer-copyright">
             <div class="container">
-            © 2014 Copyright Text
-            <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+            2020
+
             </div>
           </div>
         </footer>
