@@ -53,8 +53,8 @@
 
     <body>
 
-        <nav class="navbar navbar-expand-lg " style="background-color:black; height:80px;" >
-            <img class="materialboxed" style="margin:10px" height="50" width="50" src="{% static 'Images/Logo.png' %}">
+        <nav class="navbar navbar-expand-lg " style="background-color:#343A40; height:100px;" >
+            <img class="materialboxed" style="margin:10px" height="70" width="70" src="{% static 'Images/Logo.png' %}">
             <script>
                 $(document).ready(function(){
                     $('.materialboxed').materialbox();
@@ -62,27 +62,27 @@
 
             </script>
 
-
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav mr-auto">
 
-              <li class="nav-item">
-                  <a class='nav-link' href='/home'>Home </a>
+              <li class="nav-item" style="padding-left:10px">
+                  <a class="nav-link tooltipped" data-position="right" data-tooltip="Move To Home" href="/home">Home</a>
               </li>
 
                <!-- Dropdown Trigger -->
-              <li class="nav-item">
-                  <a class='dropdown-trigger nav-link' href='#' data-target='dropdown1'>☰ Maps </a>
+              <li class="nav-item" style="padding-left:10px">
+                  <a class="dropdown-trigger nav-link tooltipped" data-position="right" data-tooltip="Find In Maps" href='#' data-target='dropdown1'>☰ Maps </a>
               </li>
               <!-- Dropdown Structure -->
               <ul id='dropdown1' class='dropdown-content' style="background-color: #f1f1f1;">
-                <li><a style="color: #000000;" href="/corona_updates">Corona Updates</a></li>
-                <li><a style="color: #000000;" href="/city_map">Find in city</a></li>
+                <li><a style="color: #000000;" href="/corona_updates" class="tooltipped" data-position="right" data-tooltip="Get Latest Corona Updates">Corona Updates</a></li>
                 <li class="divider" tabindex="-1"></li>
-                <li><a style="color: #000000;" href="/find_me">Find Me!</a></li>
+                <li><a style="color: #000000;" href="/city_map" class="tooltipped" data-position="right" data-tooltip="Search In City Map">Find in city</a></li>
+                <li class="divider" tabindex="-1"></li>
+                <li><a style="color: #000000;" href="/find_me" class="tooltipped" data-position="right" data-tooltip="Get Your Current Location">Find Me!</a></li>
               </ul>
               <script>
                   $('.dropdown-trigger').dropdown({
@@ -91,15 +91,18 @@
               </script>
 
                <!-- Dropdown Trigger -->
-              <li class="nav-item">
-                  <a class='dropdown-trigger nav-link' href='#' data-target='dropdown2'>☰ Women </a>
+              <li class="nav-item" style="padding-left:10px">
+                  <a class="dropdown-trigger nav-link tooltipped" data-position="right" data-tooltip="Get Women Related Info" href='#' data-target='dropdown2'>☰ Women </a>
               </li>
               <!-- Dropdown Structure -->
-              <ul id='dropdown2' class='dropdown-content' style="background-color: #f1f1f1;">
-                <li><a style="color: #000000;" href="/women_rights">Women Rights</a></li>
-                <li><a style="color: #000000;" href="/women_laws">Women Laws </a></li>
-                <li><a style="color: #000000;" href="/helpline_numbers">Women Helpline Numbers</a></li>
-                <li><a style="color: #000000;" href="/news">Quick Glance</a></li>
+              <ul id='dropdown2' class='dropdown-content' style="background-color: #f1f1f1; ">
+                <li><a style="color: #000000;" href="/women_rights" class="tooltipped" data-position="right" data-tooltip="Women Legal Rights In India">Women Rights</a></li>
+                <li class="divider" tabindex="-1"></li>
+                <li><a style="color: #000000;" href="/women_laws" class="tooltipped" data-position="right" data-tooltip="Laws For Women">Women Laws </a></li>
+                <li class="divider" tabindex="-1"></li>
+                <li><a style="color: #000000;" href="/helpline_numbers" class="tooltipped" data-position="right" data-tooltip="Get To Nearest Helpline">Women Helpline Numbers</a></li>
+                <li class="divider" tabindex="-1"></li>
+                <li><a style="color: #000000;" href="/news" class="tooltipped" data-position="right" data-tooltip="See Women Issues">Quick Glance</a></li>
               </ul>
               <script>
                   $('.dropdown-trigger').dropdown({
@@ -109,28 +112,32 @@
 
 
               {% if user.is_authenticated %}
-                  <li class="nav-item">
+                  <li class="nav-item" style="padding-left:10px">
                     <a class="nav-link disabled" href="/account">{{user.username}}</a>
                   </li>
-                  <li class="nav-item">
+                  <li class="nav-item" style="padding-left:10px">
                     <a class="nav-link" href="/logout">Logout</a>
                   </li>
               {% else %}
-                  <li class="nav-item">
+                  <li class="nav-item" style="padding-left:10px">
                     <a class="nav-link" href="/register">Register</a>
                   </li>
-                  <li class="nav-item">
+                  <li class="nav-item" style="padding-left:10px">
                     <a class="nav-link" href="/login">Login</a>
                   </li>
               {% endif %}
 
 
               <li class="nav-item">
-                <a class="nav-link" href="/emergency_contact">Emergency Contacts</a>
+                <a class="nav-link tooltipped" data-position="right" data-tooltip="See Emergency Contacts" href="/emergency_contact">Emergency Contacts</a>
               </li>
             </ul>
-            <a class="nav-link" href="/emergency"><button class="btn danger" formmethod="POST">EMERGENCY !!</button></a>
-
+            <a class="nav-link btn tooltipped" data-position="bottom" data-tooltip="Click only in emergency situation. It will send help message to your emergency contacts." href="/emergency">EMERGENCY !!</a>
+            <script>
+                $(document).ready(function(){
+                    $('.tooltipped').tooltip();
+                  });
+            </script>
           </div>
         </nav>
 
@@ -285,7 +292,7 @@
 
         <br>
 
-        <footer class="page-footer" style="background-color: #000000">
+        <footer class="page-footer" style="background-color:#343A40;">
           <div class="container">
             <div class="row">
               <div class="col l6 s12">
@@ -295,8 +302,8 @@
               </div>
               <div class="col l4 offset-l2 s12">
                 <ul>
-                  <li><a class="white-text" href="/home"><i class="material-icons">home</i></a></li>
-                  <li><a class="btn waves-effect waves-teal" href="/developers">Developers </a></li>
+                  <li><a class="white-text tooltipped" data-position="right" data-tooltip="Back To Home" href="/home"><i class="material-icons">home</i></a></li>
+                  <li><a class="btn waves-effect waves-teal tooltipped" data-position="right" data-tooltip="Visit Developers Page" href="/developers">Developers </a></li>
                 </ul>
               </div>
             </div>
