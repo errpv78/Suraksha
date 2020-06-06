@@ -9,8 +9,6 @@ from .SmsSender import sendSms
 from .Scraper import news_fetch, write_news
 from os import getcwd
 from .mail import send_mail
-from .emergency_location import get_current_Location
-from .add_chromedriver  import add_to_path
 import sys
 
 
@@ -155,14 +153,6 @@ def delete_contact(request, pk):
     return render(request, 'main_app/delete_contact.html', context)
 
 def emergency(request):
-    loc = ""
-    try:
-        add_to_path()
-    except:
-        loc += "1. "
-        loc+=str(sys.exc_info()[0])
-        pass
-    # add_to_path()
     users = User.objects.all()
     curr = 0
     for user in users:
@@ -176,26 +166,20 @@ def emergency(request):
     name = user.username
     message = name+" is in emergency situation and need your help immediately!!"
 
-    try:
-        loc += get_current_Location()
-    except:
-        loc += "2. "
-        loc += str(sys.exc_info()[0])
-        pass
-
-    # loc += get_current_Location()
-    message += loc
+    errors = ""
     try:
         sendSms("8350815015", message)
     except:
+        errors += "Message not send to 8350815015"
         pass
     try:
         sendSms("7696043017", message)
     except:
+        errors += "Message not send to 7696043017"
         pass
 
     admin = [["Parikh", "8350815015"], ["Ankit", "1234567890"]]
-    context = {'contacts':contacts, 'admin':admin}
+    context = {'contacts':contacts, 'admin':admin, 'error':errors}
 
     return render(request, 'main_app/emergency.html', context)
 

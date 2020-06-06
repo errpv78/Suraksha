@@ -53,20 +53,25 @@
 
     <body>
 
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="height:80px">
-            <img class="materialboxed" style="margin-top:10px; margin-right:20px" height="50" width="50" src="{% static 'Images/Logo.png' %}">
+        <nav class="navbar navbar-expand-lg " style="background-color:black; height:80px;" >
+            <img class="materialboxed" style="margin:10px" height="50" width="50" src="{% static 'Images/Logo.png' %}">
             <script>
                 $(document).ready(function(){
                     $('.materialboxed').materialbox();
                 });
 
             </script>
-            <a class="navbar-brand" href="/home" style="margin-left:10px; margin-bottom:10px"><h3>  Suraksha: Empowering Women</h3></a>
+
+
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav mr-auto">
+
+              <li class="nav-item">
+                  <a class='nav-link' href='/home'>Home </a>
+              </li>
 
                <!-- Dropdown Trigger -->
               <li class="nav-item">
@@ -286,24 +291,20 @@
           <div class="container">
             <div class="row">
               <div class="col l6 s12">
-                <h5 class="white-text">Footer Content</h5>
-                <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+                <h5 class="white-text">Our Aim</h5>
+                <p class="grey-text text-lighten-4">Towards a better and safer India.</p>
               </div>
               <div class="col l4 offset-l2 s12">
-                <h5 class="white-text">Links</h5>
+                <a class="white-text" href="/home">Back to Home</a>
                 <ul>
-                  <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+                  <li><a class="grey-text text-lighten-3" href="/developers">Developers Page</a></li>
                 </ul>
               </div>
             </div>
           </div>
           <div class="footer-copyright">
             <div class="container">
-            © 2014 Copyright Text
-            <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+                2020 © Copyright
             </div>
           </div>
         </footer>
