@@ -5,8 +5,9 @@ Run instructions:
 
 After clonning repository open a terminal from the repository folder,
 install all the requirements from requirements.txt by running a command in terminal/cmd: 
-pip install -r requirements.txt
 
+For linux users:
+pip install -r requirements-lin.txt
 To run the webapp server:
 ./run.sh 
 
