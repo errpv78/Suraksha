@@ -133,6 +133,7 @@ def write_news():
         count +=1
 
     file.write("""
+                    <!DOCTYPE html>
                     {% extends 'main_app/common.html' %}
                     {% load static %}    
                 

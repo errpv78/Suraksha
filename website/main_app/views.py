@@ -10,6 +10,7 @@ from .Scraper import news_fetch, write_news
 from os import getcwd
 from .mail import send_mail
 import sys
+from sys import platform
 
 
 # Create your views here.
@@ -185,8 +186,9 @@ def emergency(request):
 
 
 def news(request):
-    news_fetch()
-    write_news()
+    if platform == "linux" or platform == "linux2":
+        news_fetch()
+        write_news()
     return render(request, 'main_app/news.html', {'title':'news'} )
 
 def corona_updates(request):
