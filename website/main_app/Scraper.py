@@ -100,7 +100,7 @@ def write_news():
     if platform == "linux" or platform == "linux2":
         file_name +=   "/main_app/templates/main_app/news.html"
     else:
-        file_name += "\main_app\templates\main_app\news.html"
+        file_name += "\main_app\\templates\main_app\\news.html"
     # print(file_name)
     file = open(file_name, "w+")
     conn = sqlite3.connect('newsdb.db')
