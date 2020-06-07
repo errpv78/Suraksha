@@ -130,24 +130,55 @@
           <div><img height="600" width="100%" class="mySlides" src="{% static 'Images/slideshow/ada.jpg' %}"></div>
           <div><img height="600" width="100%" class="mySlides" src="{% static 'Images/slideshow/kalpana.jpg' %}"></div>
           <div><img height="600" width="100%" class="mySlides" src="{% static 'Images/slideshow/mother_teresa.jpg' %}"></div>
+          <div><img height="600" width="100%" class="mySlides" src="{% static 'Images/slideshow/madam_curie.jpg' %}"></div>
     </div>
 
+    <div class="w3-content w3-section" style="max-width:100%" style="padding:None; margin:None; position:absolute;">
+      <div><img height="600" width="100%" class="mySlides" src="{% static 'Images/slideshow/ada.jpg' %}"></div>
+      <div><img height="600" width="100%" class="mySlides" src="{% static 'Images/slideshow/kalpana.jpg' %}"></div>
+      <div><img height="600" width="100%" class="mySlides" src="{% static 'Images/slideshow/mother_teresa.jpg' %}"></div>
+      <div><img height="600" width="100%" class="mySlides" src="{% static 'Images/slideshow/madam_curie.jpg' %}"></div>
+    
+      <button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
+      <button class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button>
+    </div>
+    
     <script>
+    var slideIndex = 1;
+    showDivs(slideIndex);
+    
+    function plusDivs(n) {
+      showDivs(slideIndex += n);
+    }
+    
+    function showDivs(n) {
+      var i;
+      var x = document.getElementsByClassName("mySlides");
+      if (n > x.length) {slideIndex = 1}
+      if (n < 1) {slideIndex = x.length}
+      for (i = 0; i < x.length; i++) {
+        x[i].style.display = "none";  
+      }
+      x[slideIndex-1].style.display = "block";  
+      setTimeout(showDivs, 5000);
+    }
+    </script>
 
-        var myIndex = 0;
-        carousel();
-
-        function carousel() {
-          var i;
-          var x = document.getElementsByClassName("mySlides");
-          for (i = 0; i < x.length; i++) {
-            x[i].style.display = "none";
-          }
-          myIndex++;
-          if (myIndex > x.length) {myIndex = 1}
-          x[myIndex-1].style.display = "block";
-          setTimeout(carousel, 5000); // Change image every 2 seconds
-        }
+    <script>
+    var myIndex = 0;
+    carousel();
+    
+    function carousel() {
+      var i;
+      var x = document.getElementsByClassName("mySlides");
+      for (i = 0; i < x.length; i++) {
+        x[i].style.display = "none";  
+      }
+      myIndex++;
+      if (myIndex > x.length) {myIndex = 1}    
+      x[myIndex-1].style.display = "block";  
+      setTimeout(carousel, 5000); // Change image every 5 seconds
+    }
     </script>
 
         <div style="text-align:center; max-width:100%" class="container">
