@@ -44,7 +44,6 @@ def news_fetch():
                 head = tag.find("h3")
                 para = tag.find("p")
                 tdTags = tag.find("a")
-                img = tag.find("img")
                 date = tag.find("time")
                 # img = tag.find("img")
                 if head!=None:
@@ -60,10 +59,6 @@ def news_fetch():
                 if date!=None:
                     date = date.text
                     # print(date)
-                if img!=None:
-                    img_url = img.get("data-original")
-                    # print(type(img_url))
-                    # print(img_url)
                 else:
                     continue
                 if tdTags!=None:
@@ -72,7 +67,7 @@ def news_fetch():
                     # print(url)
                 else:
                     continue
-                if head!=None and para!=None and url!=None and img_url!=None and date!=None:
+                if head!=None and para!=None and url!=None and date!=None:
                     # if platform == "linux" or platform == "linux2":
                     #     fullfilename = os.path.join(cwd + "/static/Pics", str(news + 1) + ".jpg")
                     # else:

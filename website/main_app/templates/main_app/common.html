@@ -24,7 +24,7 @@
 
     <body>
 
-        <nav class="navbar navbar-expand-lg " style="background-color:#343A40; height:100px;" >
+        <nav class="navbar navbar-expand-lg" style="background-color:#343A40; height:100px; padding:None;" >
             <img class="materialboxed" style="margin:10px" height="70" width="70" src="{% static 'Images/Logo.png' %}">
             <script>
                 $(document).ready(function(){
@@ -40,12 +40,12 @@
             <ul class="navbar-nav mr-auto">
 
               <li class="nav-item" style="padding-left:10px">
-                  <a class="nav-link tooltipped" data-position="right" data-tooltip="Move To Home" href="/home">Home</a>
+                  <a class="nav-link tooltipped" data-position="right" data-tooltip="Move To Home" href="/home"><h5>Home</h5></a>
               </li>
 
                <!-- Dropdown Trigger -->
               <li class="nav-item" style="padding-left:10px">
-                  <a class="dropdown-trigger nav-link tooltipped" data-position="right" data-tooltip="Find In Maps" href='#' data-target='dropdown1'>☰ Maps </a>
+                  <a class="dropdown-trigger nav-link tooltipped" data-position="right" data-tooltip="Find In Maps" href='#' data-target='dropdown1'><h5>☰ Maps </h5></a>
               </li>
               <!-- Dropdown Structure -->
               <ul id='dropdown1' class='dropdown-content' style="background-color: #f1f1f1;">
@@ -63,7 +63,7 @@
 
                <!-- Dropdown Trigger -->
               <li class="nav-item" style="padding-left:10px">
-                  <a class="dropdown-trigger nav-link tooltipped" data-position="right" data-tooltip="Get Women Related Info" href='#' data-target='dropdown2'>☰ Women </a>
+                  <a class="dropdown-trigger nav-link tooltipped" data-position="right" data-tooltip="Get Women Related Info" href='#' data-target='dropdown2'><h5>☰ Women </h5></a>
               </li>
               <!-- Dropdown Structure -->
               <ul id='dropdown2' class='dropdown-content' style="background-color: #f1f1f1; ">
@@ -82,29 +82,48 @@
               </script>
 
 
-              {% if user.is_authenticated %}
-                  <li class="nav-item" style="padding-left:10px">
-                    <a class="nav-link disabled" href="/account">{{user.username}}</a>
-                  </li>
-                  <li class="nav-item" style="padding-left:10px">
-                    <a class="nav-link" href="/logout">Logout</a>
-                  </li>
-              {% else %}
-                  <li class="nav-item" style="padding-left:10px">
-                    <a class="nav-link" href="/register">Register</a>
-                  </li>
-                  <li class="nav-item" style="padding-left:10px">
-                    <a class="nav-link" href="/login">Login</a>
-                  </li>
-              {% endif %}
-
 
               <li class="nav-item">
-                <a class="nav-link tooltipped" data-position="right" data-tooltip="See Emergency Contacts" href="/emergency_contact">Emergency Contacts</a>
+                <a class="nav-link tooltipped" data-position="right" data-tooltip="See Emergency Contacts" href="/emergency_contact"><h5>Emergency Contacts</h5></a>
               </li>
             </ul>
-            <a class="nav-link btn tooltipped" data-position="bottom" data-tooltip="Click only in emergency situation. It will send help message to your emergency contacts." href="/emergency">EMERGENCY !!</a>
-            <script>
+
+            <ul>
+              {% if user.is_authenticated %}
+                  <li>
+                      <a class="nav-link nav-item dropdown-trigger tooltipped navbar-nav mr-auto" style="color:white;" href="#" data-target="dropdown3" data-position="left" data-tooltip="Hello, {{user.username}}"><h5>{{user.username}}</h5></a>
+                  </li>
+                <ul id='dropdown3' class='dropdown-content' style="background-color: #f1f1f1;">
+                    <li><a style="color: #000000;" href="/logout" class="tooltipped" data-position="left" data-tooltip="Good Bye">Logout</a></li>
+                </ul>
+              <script>
+                  $('.dropdown-trigger').dropdown({
+                      coverTrigger:false
+                  });
+              </script>
+              {% else %}
+                  <li>
+                      <a class="nav-link nav-item dropdown-trigger tooltipped navbar-nav mr-auto" data-position="left" data-tooltip="Welcome, To Suraksha" style="color:white;" href="#" data-target="dropdown4" data-position="left" data-tooltip="User login/register"><h5> User</h5></a>
+                  </li>
+                <ul id='dropdown4' class='dropdown-content' style="background-color: #f1f1f1;">
+                  <li class="nav-item">
+                    <a style="color: #000000;" class="tooltipped" data-position="left" data-tooltip="Register New Account" href="/register">Register</a>
+                  </li>
+                  <li class="divider" tabindex="-1"></li>
+                  <li class="nav-item">
+                    <a style="color: #000000;"  href="/login" class="tooltipped" data-position="left" data-tooltip="Login to Account">Login</a>
+                  </li>
+                </ul>
+              <script>
+                  $('.dropdown-trigger').dropdown({
+                      coverTrigger:false
+                  });
+              </script>
+              {% endif %}
+              <li><a class="nav-link tooltipped nav-item" data-position="left" data-tooltip="Click only in emergency situation. It will send help message to your emergency contacts." href="/emergency"><h5><strong>EMERGENCY !!</strong></h5></a></li>
+
+            </ul>
+             <script>
                 $(document).ready(function(){
                     $('.tooltipped').tooltip();
                   });
@@ -120,25 +139,22 @@
         {% endif %}
 
 
-        <div class="container">
-            <br>
             {% block content %}
 
             {% endblock %}
-        </div>
 
-        <footer class="page-footer" style="background-color:#343A40;">
+        <footer class="page-footer" style="background-color:black;">
           <div class="container">
             <div class="row">
               <div class="col l6 s12">
-                <h5 class="white-text">Our Aim</h5>
-                <p class="grey-text text-lighten-4">Towards a better and safer India.</p>
+                <h4 class="white-text">Our Aim</h4>
+                <p class="grey-text text-lighten-4"><h4>Towards a better and safer India.</h4></p>
                 <div >2020 © Copyright</div>
               </div>
               <div class="col l4 offset-l2 s12">
                 <ul>
-                  <li><a class="white-text tooltipped" data-position="right" data-tooltip="Back To Home" href="/home"><i class="material-icons">home</i></a></li>
-                  <li><a class="btn waves-effect waves-teal tooltipped" data-position="right" data-tooltip="Visit Developers Page" href="/developers">Developers </a></li>
+                  <li><a class="white-text tooltipped" data-position="right" data-tooltip="Back To Home" href="/home"><i class="material-icons small">home</i></a></li>
+                  <li><a class="waves-effect tooltipped" data-position="right" data-tooltip="Visit Developers Page" href="/developers"><h4>Developers</h4></a></li>
                 </ul>
               </div>
             </div>

@@ -5,7 +5,9 @@
 <html lang="en">
     {% block content %}
 
-
+	<div style="background-color:#f5f5f5;">
+	<div class="container">
+		<br>
 		<div class="jumbotron" >
 		  <h1 class="display-4"><strong>ABOUT US</strong>	</h1>
 
@@ -22,10 +24,27 @@
 
 		<h5 align="center">DEVELOPERS:</h5>
 
-		<div class="row">
+		<div class="row" style="max-width:90%">
 			<div class="card col s12 m5">
 				<div class="card-image waves-effect waves-block waves-light">
-				  <img height="300" width="200" class="activator" src="{% static 'Images/Parikh.jpeg' %}">
+				  <img height="300" width="200" class="activator" src="{% static 'Images/arihant.jpeg' %}" style="border-radius:50%; padding-top:10px;">
+				</div>
+				<div class="card-content">
+				  <span class="card-title activator grey-text text-darken-4">Arihant Chawla<i class="material-icons right">more_vert</i></span>
+				</div>
+				<div class="card-action">
+				  <a href="https://www.linkedin.com/in/arihantchawla/" target="_blank">LinkedIn</a>
+				  <a href="https://github.com/ArihantChawla" target="_blank">Github</a>
+				</div>
+				<div class="card-reveal">
+				  <span class="card-title grey-text text-darken-4">Project Mentor<i class="material-icons right">close</i></span>
+				  <p>Acted as project mentor for other developers for this project. Helped in resolving issues, managing ideas and suggesting ideas.</p>
+				</div>
+			</div>
+
+			<div class="card col s12 m5">
+				<div class="card-image waves-effect waves-block waves-light">
+				  <img height="300" width="200" class="activator" src="{% static 'Images/Parikh.jpeg' %}" style="border-radius:50%; padding-top:10px;">
 				</div>
 				<div class="card-content">
 				  <span class="card-title activator grey-text text-darken-4">Parikh Goyal<i class="material-icons right">more_vert</i></span>
@@ -35,14 +54,14 @@
 				  <a href="https://github.com/errpv78" target="_blank">Github</a>
 				</div>
 				<div class="card-reveal">
-				  <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-				  <p>Here is some more information about this product that is only revealed once clicked on.</p>
+				  <span class="card-title grey-text text-darken-4">Project Contribution<i class="material-icons right">close</i></span>
+				  <p>Designed and developed the web-application. Worked with different maps and geolocation APIs, styled and managed web pages.</p>
 				</div>
 			</div>
 
 			<div class="card col s12 m5">
 				<div class="card-image waves-effect waves-block waves-light">
-				  <img height="300" width="200" class="activator" src="{% static 'Images/Ankit.jpg' %}">
+				  <img height="300" width="200" class="activator" src="{% static 'Images/Ankit.jpg' %}" style="border-radius:50%; padding-top:10px;">
 				</div>
 				<div class="card-content">
 				  <span class="card-title activator grey-text text-darken-4">Ankit Goyal<i class="material-icons right">more_vert</i></span>
@@ -52,14 +71,16 @@
 				  <a href="https://github.com/ankitgoyal0301" target="_blank">Github</a>
 				</div>
 				<div class="card-reveal">
-				  <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-				  <p>Here is some more information about this product that is only revealed once clicked on.</p>
+				  <span class="card-title grey-text text-darken-4">Project Contribution<i class="material-icons right">close</i></span>
+				  <p>Developed the news crawler and worked with messaging service APIs. Managed web-pages styling.</p>
 				</div>
 			</div>
+		</div>
 
-			<div class="card col s12 m5">
-				<div class="card-image waves-effect waves-block waves-light">
-				  <img height="300" width="200" class="activator" src="{% static 'Images/Jaskaran.jpeg' %}">
+		<div class="row" style="max-width:60%">
+			<div class="card col s8 m6">
+				<div class="card-image waves-effect waves-block waves-light card-small">
+				  <img height="300" width="200" class="activator" src="{% static 'Images/Jaskaran.jpeg' %}" style="border-radius:50%; padding-top:10px;">
 				</div>
 				<div class="card-content">
 				  <span class="card-title activator grey-text text-darken-4">Jaskaran Singh<i class="material-icons right">more_vert</i></span>
@@ -69,14 +90,14 @@
 				  <a href="https://github.com/jaskaran-23" target="_blank">Github</a>
 				</div>
 				<div class="card-reveal">
-				  <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-				  <p>Here is some more information about this product that is only revealed once clicked on.</p>
+				  <span class="card-title grey-text text-darken-4">Project Contribution<i class="material-icons right">close</i></span>
+				  <p>Worked on email notification feature and styling of web pages.</p>
 				</div>
 			</div>
 
 			<div class="card col s12 m5">
 				<div class="card-image waves-effect waves-block waves-light">
-				  <img height="300" width="200" class="activator" src="{% static 'Images/Nibhrit.jpeg' %}">
+				  <img height="300" width="200" class="activator" src="{% static 'Images/Nibhrit.jpeg' %}" style="border-radius:50%; padding-top:10px;">
 				</div>
 				<div class="card-content">
 				  <span class="card-title activator grey-text text-darken-4">Nibhrit Garg<i class="material-icons right">more_vert</i></span>
@@ -86,13 +107,14 @@
 				  <a href="https://github.com/Nibhrit-Garg" target="_blank">Github</a>
 				</div>
 				<div class="card-reveal">
-				  <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-				  <p>Here is some more information about this product that is only revealed once clicked on.</p>
+				  <span class="card-title grey-text text-darken-4">Project Contribution<i class="material-icons right">close</i></span>
+				  <p>Managed content and styling of web pages.</p>
 				</div>
 			</div>
 
 		</div>
-
+	</div>
+	</div>
 
     {% endblock %}
 

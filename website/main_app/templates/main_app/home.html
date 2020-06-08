@@ -30,8 +30,8 @@
 
         </style>
     </head>
-
-        <nav class="navbar navbar-expand-lg " style="background-color:#343A40; height:100px;" >
+    <body style="padding:0px; margin:0px; background-color:#eceff1;">
+        <nav class="navbar navbar-expand-lg transparent" style="background-color:#343A40; height:100px; padding:None; position:absolute;" >
             <img class="materialboxed" style="margin:10px" height="70" width="70" src="{% static 'Images/Logo.png' %}">
             <script>
                 $(document).ready(function(){
@@ -47,12 +47,12 @@
             <ul class="navbar-nav mr-auto">
 
               <li class="nav-item" style="padding-left:10px">
-                  <a class="nav-link tooltipped" data-position="right" data-tooltip="Move To Home" href="/home">Home</a>
+                  <a class="nav-link tooltipped" data-position="right" data-tooltip="Move To Home" href="/home"><h3>Home</h3></a>
               </li>
 
                <!-- Dropdown Trigger -->
               <li class="nav-item" style="padding-left:10px">
-                  <a class="dropdown-trigger nav-link tooltipped" data-position="right" data-tooltip="Find In Maps" href='#' data-target='dropdown1'>☰ Maps </a>
+                  <a class="dropdown-trigger nav-link tooltipped" data-position="right" data-tooltip="Find In Maps" href='#' data-target='dropdown1'><h3>☰ Maps </h3></a>
               </li>
               <!-- Dropdown Structure -->
               <ul id='dropdown1' class='dropdown-content' style="background-color: #f1f1f1;">
@@ -70,7 +70,7 @@
 
                <!-- Dropdown Trigger -->
               <li class="nav-item" style="padding-left:10px">
-                  <a class="dropdown-trigger nav-link tooltipped" data-position="right" data-tooltip="Get Women Related Info" href='#' data-target='dropdown2'>☰ Women </a>
+                  <a class="dropdown-trigger nav-link tooltipped" data-position="right" data-tooltip="Get Women Related Info" href='#' data-target='dropdown2'><h3>☰ Women </h3></a>
               </li>
               <!-- Dropdown Structure -->
               <ul id='dropdown2' class='dropdown-content' style="background-color: #f1f1f1; ">
@@ -89,29 +89,48 @@
               </script>
 
 
-              {% if user.is_authenticated %}
-                  <li class="nav-item" style="padding-left:10px">
-                    <a class="nav-link disabled" href="/account">{{user.username}}</a>
-                  </li>
-                  <li class="nav-item" style="padding-left:10px">
-                    <a class="nav-link" href="/logout">Logout</a>
-                  </li>
-              {% else %}
-                  <li class="nav-item" style="padding-left:10px">
-                    <a class="nav-link" href="/register">Register</a>
-                  </li>
-                  <li class="nav-item" style="padding-left:10px">
-                    <a class="nav-link" href="/login">Login</a>
-                  </li>
-              {% endif %}
-
 
               <li class="nav-item">
-                <a class="nav-link tooltipped" data-position="right" data-tooltip="See Emergency Contacts" href="/emergency_contact">Emergency Contacts</a>
+                <a class="nav-link tooltipped" data-position="right" data-tooltip="See Emergency Contacts" href="/emergency_contact"><h3>Emergency Contacts</h3></a>
               </li>
             </ul>
-            <a class="nav-link btn tooltipped" data-position="bottom" data-tooltip="Click only in emergency situation. It will send help message to your emergency contacts." href="/emergency">EMERGENCY !!</a>
-            <script>
+
+            <ul>
+              {% if user.is_authenticated %}
+                  <li>
+                      <a class="nav-link nav-item dropdown-trigger tooltipped navbar-nav mr-auto" style="color:white;" href="#" data-target="dropdown3" data-position="left" data-tooltip="Hello, {{user.username}}"><h3>{{user.username}}</h3></a>
+                  </li>
+                <ul id='dropdown3' class='dropdown-content' style="background-color: #f1f1f1;">
+                    <li><a style="color: #000000;" href="/logout" class="tooltipped" data-position="left" data-tooltip="Good Bye">Logout</a></li>
+                </ul>
+              <script>
+                  $('.dropdown-trigger').dropdown({
+                      coverTrigger:false
+                  });
+              </script>
+              {% else %}
+                  <li>
+                      <a class="nav-link nav-item dropdown-trigger tooltipped navbar-nav mr-auto" data-position="left" data-tooltip="Welcome, To Suraksha" style="color:white;" href="#" data-target="dropdown4" data-position="left" data-tooltip="User login/register"><h3> User</h3></a>
+                  </li>
+                <ul id='dropdown4' class='dropdown-content' style="background-color: #f1f1f1;">
+                  <li class="nav-item">
+                    <a style="color: #000000;" class="tooltipped" data-position="left" data-tooltip="Register New Account" href="/register">Register</a>
+                  </li>
+                  <li class="divider" tabindex="-1"></li>
+                  <li class="nav-item">
+                    <a style="color: #000000;"  href="/login" class="tooltipped" data-position="left" data-tooltip="Login to Account">Login</a>
+                  </li>
+                </ul>
+              <script>
+                  $('.dropdown-trigger').dropdown({
+                      coverTrigger:false
+                  });
+              </script>
+              {% endif %}
+              <li><a class="nav-link tooltipped nav-item" data-position="left" data-tooltip="Click only in emergency situation. It will send help message to your emergency contacts." href="/emergency"><h3><strong>EMERGENCY !!</strong></h3></a></li>
+
+            </ul>
+             <script>
                 $(document).ready(function(){
                     $('.tooltipped').tooltip();
                   });
@@ -125,24 +144,65 @@
                 displayLength:4000});</script>
             {% endfor %}
         {% endif %}
-
-    <div class="w3-content w3-section" style="max-width:100%" style="padding:None; margin:None; position:absolute;">
-          <div><img height="600" width="100%" class="mySlides" src="{% static 'Images/slideshow/ada.jpg' %}"></div>
-          <div><img height="600" width="100%" class="mySlides" src="{% static 'Images/slideshow/kalpana.jpg' %}"></div>
-          <div><img height="600" width="100%" class="mySlides" src="{% static 'Images/slideshow/mother_teresa.jpg' %}"></div>
-          <div><img height="600" width="100%" class="mySlides" src="{% static 'Images/slideshow/madam_curie.jpg' %}"></div>
+    <div>
+        <div><img height="700" width="100%" src="{% static 'Images/crimes-against-women.jpg' %}"></div>
     </div>
 
-    <div class="w3-content w3-section" style="max-width:100%" style="padding:None; margin:None; position:absolute;">
-      <div><img height="600" width="100%" class="mySlides" src="{% static 'Images/slideshow/ada.jpg' %}"></div>
-      <div><img height="600" width="100%" class="mySlides" src="{% static 'Images/slideshow/kalpana.jpg' %}"></div>
-      <div><img height="600" width="100%" class="mySlides" src="{% static 'Images/slideshow/mother_teresa.jpg' %}"></div>
-      <div><img height="600" width="100%" class="mySlides" src="{% static 'Images/slideshow/madam_curie.jpg' %}"></div>
-    
-      <button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
-      <button class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button>
+    <div style="text-align:center; max-width:100%; background-color:black; color:white;">
+    <div style="text-align:center; max-width:80%; background-color:black; color:white;" class="container">
+            <marquee width="100%" direction="left" height="30%" style="font-family: Times, "Times New Roman", serif;">
+                <h3><i>”Every girl and every woman, has the potential to make this world a better place, and that potential lies in the act
+                    of thinking higher thoughts and feeling deeper things. When women and girls, everywhere, begin to see themselves as
+                    more than inanimate objects; but as beautiful beings capable of deep feelings and high thoughts, this has the capacity
+                    to create change all around. The kind of change that is for the better.”-C. JoyBell C. </i></h3>
+            </marquee>
     </div>
-    
+    </div>
+
+
+    <div style="text-align:center; margin-top:20px; max-width:60%; margin-left:auto; margin-right:auto; display:block; font-family:Serif;">
+    <ul class="collapsible">
+        <li style="">
+          <div class="collapsible-header" style="text-align:left; height:80px; margin-left:auto; margin-right:auto; display:block;">
+              <h2> ≡ <span style="font-family:Serif;"> &nbsp; India ranked poor for women safety.</span></h2></div>
+          <div class="collapsible-body" ><h3 style="text-align:left;">The Georgetown Institute for Women, Peace and Security(GIWPS), America in collaboration
+              with The Peace Research Institute of Oslo (PRIO), Norway, released its 2nd edition of the report titled Women, Peace, and
+              Security (WPS) Index for the year 2019. India was ranked 133rd out of 167 countries.</h3></div>
+        </li>
+        <li>
+          <div class="collapsible-header" style="text-align:left; height:80px; margin-left:auto; margin-right:auto; display:block;">
+              <h2> ≡ <span style="font-family:Serif;"> &nbsp; A rape in India every 15 minutes.</span></h2></div>
+          <div class="collapsible-body"><h3 style="text-align:left;">In India, a rape is reported every 15 minutes, according to recently released official
+              government crime data. The National Crime Records Bureau (NCRB) data from 2018 has stark revelations about crime in the
+              country. In almost 94 per cent of the cases, the offenders were known to the victims - family members, friends, live-in
+              partners, employers or others, the data showed.</h3></div>
+        </li>
+        <li>
+          <div class="collapsible-header" style="text-align:left; height:80px; margin-left:auto; margin-right:auto; display:block;">
+              <h2> ≡ <span style="font-family:Serif;"> &nbsp; 99% of voilence faced by women go unnoticed.</span></h2></div>
+          <div class="collapsible-body"><h3 style="text-align:left;">According to, National Family Health Survey (NFHS) average Indian woman is 17 times more
+              likely to face sexual violence from her husband than from others. Only 3.5% of victims of violence reported seeking the
+              help of police. In states such as Bihar, Uttar Pradesh and Jharkhand, less than 0.5% of incidents of violence against women
+              were reported. Tamil Nadu and Karnataka also saw very low reporting of such crimes despite a higher female literacy rate.</h3></div>
+        </li>
+    </ul>
+    </div>
+    <script>
+        $(document).ready(function(){
+            $('.collapsible').collapsible();
+          });
+    </script>
+
+
+    <div class="w3-content w3-section" style="max-width:100%" style="margin-left: auto;
+  margin-right: auto; display:bloack;">
+          <div><img height="700" width="100%" class="mySlides" src="{% static 'Images/slideshow/ada.jpg' %}"></div>
+          <div><img height="700" width="100%" class="mySlides" src="{% static 'Images/slideshow/kalpana.jpg' %}"></div>
+          <div><img height="700" width="100%" class="mySlides" src="{% static 'Images/slideshow/mother_teresa.jpg' %}"></div>
+          <div><img height="700" width="100%" class="mySlides" src="{% static 'Images/slideshow/madam_curie.jpg' %}"></div>
+    </div>
+
+
     <script>
     var slideIndex = 1;
     showDivs(slideIndex);
@@ -160,88 +220,39 @@
         x[i].style.display = "none";  
       }
       x[slideIndex-1].style.display = "block";  
-      setTimeout(showDivs, 5000);
+      setTimeout(showDivs, 3000);
     }
     </script>
 
     <script>
     var myIndex = 0;
     carousel();
-    
+
     function carousel() {
       var i;
       var x = document.getElementsByClassName("mySlides");
       for (i = 0; i < x.length; i++) {
-        x[i].style.display = "none";  
+        x[i].style.display = "none";
       }
       myIndex++;
-      if (myIndex > x.length) {myIndex = 1}    
-      x[myIndex-1].style.display = "block";  
-      setTimeout(carousel, 5000); // Change image every 5 seconds
+      if (myIndex > x.length) {myIndex = 1}
+      x[myIndex-1].style.display = "block";
+      setTimeout(carousel, 3000); // Change image every 5 seconds
     }
     </script>
 
-        <div style="text-align:center; max-width:100%" class="container">
-            <marquee width="100%" direction="left" height="30%">
-                Welcome to suraksha!. We beleive, women empowerment is necessary for bright future of our great country.
-                Women security is one of the biggest concerns of our country today, and everyone has the responsibilty
-                and duty to contribute to women safety and in turn move towards a better and safer world!!
-            </marquee>
-        </div>
-
-
-    <ul class="collapsible">
-        <li>
-          <div class="collapsible-header"><i class="material-icons">add_box</i>India ranked poor for women safety.</div>
-          <div class="collapsible-body"><span>The Georgetown Institute for Women, Peace and Security(GIWPS), America in collaboration
-              with The Peace Research Institute of Oslo (PRIO), Norway, released its 2nd edition of the report titled Women, Peace, and
-              Security (WPS) Index for the year 2019. India was ranked 133rd out of 167 countries.</span></div>
-        </li>
-        <li>
-          <div class="collapsible-header"><i class="material-icons">add_box</i>A rape in India every 15 minutes.</div>
-          <div class="collapsible-body"><span>In India, a rape is reported every 15 minutes, according to recently released official
-              government crime data. The National Crime Records Bureau (NCRB) data from 2018 has stark revelations about crime in the
-              country. In almost 94 per cent of the cases, the offenders were known to the victims - family members, friends, live-in
-              partners, employers or others, the data showed.</span></div>
-        </li>
-        <li>
-          <div class="collapsible-header"><i class="material-icons">add_box</i>99% of voilence faced by women go unnoticed.</div>
-          <div class="collapsible-body"><span>According to, National Family Health Survey (NFHS) average Indian woman is 17 times more
-              likely to face sexual violence from her husband than from others. Only 3.5% of victims of violence reported seeking the
-              help of police. In states such as Bihar, Uttar Pradesh and Jharkhand, less than 0.5% of incidents of violence against women
-              were reported. Tamil Nadu and Karnataka also saw very low reporting of such crimes despite a higher female literacy rate.</span></div>
-        </li>
-    </ul>
-    <script>
-        $(document).ready(function(){
-            $('.collapsible').collapsible();
-          });
-    </script>
-
-
-    <div class="parallax-container" >
-        <div class="parallax"><img height="850" width="100%" src="{% static 'Images/crimes-against-women.jpg' %}"></div>
-    </div>
-    <script>
-        $(document).ready(function(){
-            $('.parallax').parallax();
-          });
-    </script>
-
-    <br>
-
-        <footer class="page-footer" style="background-color:#343A40;">
+        <footer class="page-footer" style="background-color:black;">
           <div class="container">
             <div class="row">
               <div class="col l6 s12">
-                <h5 class="white-text">Our Aim</h5>
-                <p class="grey-text text-lighten-4">Towards a better and safer India.</p>
+                <h3 class="white-text">Our Aim</h3>
+                <p class="grey-text text-lighten-4"><h3>Towards a better and safer India.</h3></p>
                 <div >2020 © Copyright</div>
               </div>
               <div class="col l4 offset-l2 s12">
                 <ul>
-                  <li><a class="white-text tooltipped" data-position="right" data-tooltip="Back To Home" href="/home"><i class="material-icons">home</i></a></li>
-                  <li><a class="btn waves-effect waves-teal tooltipped" data-position="right" data-tooltip="Visit Developers Page" href="/developers">Developers </a></li>
+                  <li><a class="white-text tooltipped" data-position="right" data-tooltip="Back To Top" href="/home"><i class="material-icons medium">home</i></a></li>
+                  <li><a class="waves-effect tooltipped" data-position="right" data-tooltip="Visit Developers Page" href="/developers"><h3>Developers</h3></a></li>
                 </ul>
               </div>
             </div>
@@ -249,5 +260,5 @@
           <div class="footer-copyright">
           </div>
         </footer>
-
+    </body>
 </html>
