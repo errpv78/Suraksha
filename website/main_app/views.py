@@ -164,23 +164,29 @@ def emergency(request):
         return redirect("main_app:login")
     user = curr
     contacts = contact.objects.filter(user=user)
+    emails = []
+    for j in contacts:
+        emails.append(j._meta.get_field("email"))
     name = user.username
     message = name+" is in emergency situation and need your help immediately!!"
 
     errors = ""
-    try:
-        sendSms("8350815015", message)
-    except:
-        errors += "Message not send to 8350815015"
-        pass
-    try:
-        sendSms("7696043017", message)
-    except:
-        errors += "Message not send to 7696043017"
-        pass
+    # try:
+    #     sendSms("8350815015", message)
+    # except:
+    #     errors += "Message not send to 8350815015"
+    #     pass
+    # try:
+    #     sendSms("7696043017", message)
+    # except:
+    #     errors += "Message not send to 7696043017"
+    #     pass
+    #
+    # for c in contacts:
+    #     send_mail(c.email, message)
 
     admin = [["Parikh", "8350815015"], ["Ankit", "1234567890"]]
-    context = {'contacts':contacts, 'admin':admin, 'error':errors}
+    context = {'contacts':contacts, 'admin':admin, 'error':errors, 'emails':emails}
 
     return render(request, 'main_app/emergency.html', context)
 

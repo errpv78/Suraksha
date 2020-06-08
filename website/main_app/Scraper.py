@@ -109,7 +109,7 @@ def write_news():
     cards = []
     count = 1
     for j in results:
-        card = """  <div class="card">
+        card = """  <div class="card" style="margin-left:20px">
                         <div class="card-image waves-effect waves-block waves-light">
                             <img height="200" class="activator" src="{% static 'Pics/""" + str(count) +""".jpg' %}">
                         </div>
@@ -133,7 +133,9 @@ def write_news():
                     {% load static %}    
                 
                     {% block content %} 
-                    
+                    <br>
+                    <body>
+                    <div style="max-width:80%; margin-left:auto; margin-right:auto; display:block;" >
                     <div class="jumbotron">
                       <h1 class="display-4">Latest news!!</h1>
                       <p class="lead">News and issues of women should no longer go unnoticed, know the real issues.</p>
@@ -143,12 +145,13 @@ def write_news():
                       </p>
                     </div>
                     <style>.card { width:400px; height:400px;} </style>
-                       <div class="row"> """)
+                       <div class="row" style="margin-left:8%;"> """)
 
     for card in cards:
         file.write(card)
 
-    file.write(""" </div>
+    file.write(""" </div></div>
+                    </body>
                         {% endblock %} """)
 
     file.close()

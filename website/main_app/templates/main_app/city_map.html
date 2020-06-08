@@ -24,25 +24,24 @@
                  #map {
                     left: 2px; top: 1px;
                     right: 2px; bottom: 2px;
-                    border: 1px solid #cccccc;
                     margin-top:20px;
                     margin-right:20px;
                     margin-left:20px;
+                    padding-right:20px;
                     height:1000px;
-                    width:1595px;
+                    max-width:75%;
                     }
                 #result {
                     left: 2px; top: 46px;
                     width: 306px;
                     bottom: 2px;
-                    border: 1px solid #cccccc;
-                    background-color: #FAFAFA;
+                    background-color:#ECEFF1;
                     overflow: auto;
                     margin-top:20px;
                     margin-right:20px;
                     margin-left:20px;
-                    height:1000px;
-                    width:310px;
+                    height:10%;
+                    width:10%;
                     }
                  button{width: 220px;font-family:Verdana,sans-serif, Arial;font-size:12px;padding:2px 0;color:#333}
             </style>
@@ -51,8 +50,8 @@
 
     </head>
 
-    <body>
-        <nav class="navbar navbar-expand-lg" style="background-color:#343A40; height:100px; padding:None;" >
+    <body style="background-color:#ECEFF1;">
+        <nav class="navbar navbar-expand-lg" style="background-color:black; height:100px; padding:None;" >
             <img class="materialboxed" style="margin:10px" height="70" width="70" src="{% static 'Images/Logo.png' %}">
             <script>
                 $(document).ready(function(){
@@ -158,6 +157,8 @@
             </script>
           </div>
         </nav>
+
+        <br>
 
         {% if messages %}
             {% for message in messages %}
@@ -280,7 +281,9 @@
                     event_div.innerHTML= "Zoom level set to: "+ zoom +event_div.innerHTML;
                 }
             </script>
-            <div class="container" style="height:100%;, width:100%; display: table-row">
+
+        <div style="max-width:98%">
+            <div class="container" style="height:100%;, max-width:90%; display: table-row">
             <div id="result" style="display: table-cell;">
             <div style="padding: 16px 12px 6px 38px"><button onclick="mapmyindia_current_zoom_level()" style="width: 220px;">Get current zoom level</button></div>
                 <div style="padding: 6px 12px 6px 38px;"><button onclick="mapmyindia_current_center_location()" style="width: 220px;">Get current map center</button></div>
@@ -301,13 +304,14 @@
                 <div style="padding:14px 12px 6px 38px;color: #666;">Event Logs</div>
                 <div style="padding:6px 12px 6px 38px;color: #777; font-size: 12px; line-height: 22px;" id="event-log"></div>
             </div>
-            <div id="map" style="display: table-cell;"></div>
+            <div id="map" style="display: table-cell; max-width:90%;"></div>
             </div>
 
 
+        </div>
 
 
-
+        <br>
         <br>
 
         <footer class="page-footer" style="background-color:black;">

@@ -4,14 +4,20 @@
 
 <html lang="en">
     {% block content %}
+    <body style="background-color:white;">
+        <br>
+        <div class="container">
+            <form method="POST">
+                {% csrf_token %}
+                {{form.as_p}}
+                <br>
+                <button class="btn" name="submit" type="submit">Create</button>
+            </form>
 
-        <form method="POST">
-            {% csrf_token %}
-            {{form.as_p}}
-
-            <button class="btn" name="submit" type="submit">Create</button>
-        </form>
-
+        </div>
+    </body>
+    <br><br><br><br>
+    <br><br><br>
     {% endblock %}
 
 

@@ -4,15 +4,28 @@
 
 <html lang="en">
     {% block content %}
+    <body style="background-color:white;">
 
-        <form method="POST">
-            {% csrf_token %}
-            {{form.as_p}}
+        <div class="container">
+            <br>
+            <div class="jumbotron jumbotron-fluid"  style="background-color:#ECEFF1;">
+              <div class="container">
+                <h1 class="display-4">Welcome, back</h1>
+                <p class="lead">Login to your registered account.</p>
+              </div>
+            </div>
+            <form method="POST">
+                {% csrf_token %}
+                {{form.as_p}}
+            <br>
+                <button class="btn" type="submit">Login</button>
+            </form>
+            <br>
+            No account yet,  <a href="/register"><strong>Create New Account</strong></a>.
 
-            <button class="btn" type="submit">Login</button>
-        </form>
-
-        If you don't already have registered, <a href="/register"><strong>Register</strong></a> one.
+        </div>
+    </body>
+    <br>
 
     {% endblock %}
 

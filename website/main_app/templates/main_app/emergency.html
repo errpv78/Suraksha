@@ -4,13 +4,21 @@
 
 <html lang="en">
     {% block content %}
+    <body style="height:1000px; max-width:100%; background-color:#ECEFF1;">
+    <div class="container" style="height:65%; max-width:100%">
 
-        <h1>Emergency Situation!!</h1>
+    <h1 style="color:red; text-decoration:underline;">Emergency Situation!!</h1>
+        <br>
         {% for contact in contacts %}
-            <p>Message deleivered to {{contact.name}}</p>
+            <h4 style="color:black">Message deleivered to {{contact.name}} at {{contact.phone}}</h4>
+            <h4 style="color:black">Email deleiverd to {{contact.name}} at {{contact.email}}</h4>
+        <br>
         {% endfor %}
 
-        <p>{{error}}</p>
+        <h4 style="color:white">{{error}}</h4>
+
+    </div>
+    </body>
 
     {% endblock %}
 
