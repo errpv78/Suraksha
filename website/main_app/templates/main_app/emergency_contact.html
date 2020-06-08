@@ -17,10 +17,10 @@
 				<h6>Total Saved Contacts: {{total_contacts}}</h6>
 				<hr><br>
 
-					<a class="btn btn-primary  btn-sm btn-block" href="{% url 'main_app:create_contact' %}">Create Contact</a>
+					<a style="color:white; background-color:black;" class="btn btn-primary  btn-sm btn-block" href="{% url 'main_app:create_contact' %}">Create Contact</a>
 					<br>
 					<table class="table">
-						<thead class="thead-dark">
+						<thead class="thead"  style="color:black; background-color:#E9ECEF;">
 							<tr>
 								<th>Name</th>
 								<th>Phone</th>
@@ -38,8 +38,8 @@
 									<td>{{contact.phone}}</td>
 									<td>{{contact.relation}}</td>
 									<td>{{contact.email}}</td>
-									<td><a class="btn btn-sm btn-info" href="{% url 'main_app:update_contact' contact.id %}">Update</a></td>
-									<td><a class="btn btn-sm btn-danger" href="{% url 'main_app:delete_contact' contact.id %}">Delete</a></td>
+									<td><a style="color:white; background-color:black;" class="btn btn-sm btn-info" href="{% url 'main_app:update_contact' contact.id %}">Update</a></td>
+									<td><a style="color:white; background-color:black;" class="btn btn-sm btn-danger" href="{% url 'main_app:delete_contact' contact.id %}">Delete</a></td>
 								</tr>
 							</tbody>
 							<br>

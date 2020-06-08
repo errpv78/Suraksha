@@ -115,7 +115,7 @@ def write_news():
                         </div>
                         <div class="card-content">
                             <span class="card-title activator grey-text text-darken-4">""" + j[1] +"""<i class="material-icons right">more_vert</i></span>
-                            <p><a class="waves-effect waves-light btn" target="_blank" href="  """ + j[3] + """  ">See More</a></p>
+                            <p><a style="color:white; background-color:black;" class="waves-effect waves-light btn" target="_blank" href="  """ + j[3] + """  ">See More</a></p>
                         </div>
                         <div class="card-reveal">
                         <span class="card-title activator grey-text text-darken-4">""" + j[4] +"""
@@ -141,7 +141,7 @@ def write_news():
                       <p class="lead">News and issues of women should no longer go unnoticed, know the real issues.</p>
                       <hr class="my-4">
                       <p class="lead">
-                        <a class="btn btn-primary btn-lg tooltipped" href="{% url 'main_app:news' %}" role="button"  data-position="right" data-tooltip="Refresh for latest news">Refresh</a>
+                        <a style="color:white; background-color:black;" class="btn btn-primary btn-lg tooltipped" href="{% url 'main_app:news' %}" role="button"  data-position="right" data-tooltip="Refresh for latest news">Refresh</a>
                       </p>
                     </div>
                     <style>.card { width:400px; height:400px;} </style>

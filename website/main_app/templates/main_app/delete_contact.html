@@ -16,9 +16,9 @@
 					<form action="{% url 'main_app:delete_contact' item.id  %}" method="POST">
 
 						{% csrf_token %}
-						<a class="btn btn-warning" href="{% url 'main_app:emergency_contact' %}">Cancel</a>
+						<a style="color:white; background-color:black;" class="btn btn-warning" href="{% url 'main_app:emergency_contact' %}">Cancel</a>
 
-						<input class="btn btn-danger" type="submit" name="Yes">
+						<input style="color:white; background-color:black;" class="btn btn-danger" type="submit" name="Yes">
 					</form>
 				</div>
 			</div>
