@@ -12,28 +12,28 @@ Run instructions:
 2. Install all the requirements from requirements.txt by running a command in terminal/cmd: 
 
 
-For linux/macOS users:
-1) Check for virtual env: <br>
+For linux/macOS users: <br>
+1. Check for virtual env: <br>
 <code>python3 -m pip install virtualenv </code>
-2) Create virtual env with name suraksha: <br>
+2. Create virtual env with name suraksha: <br>
 <code>python3 -m venv suraksha</code>
-3) Activate virtual env: <br>
+3. Activate virtual env: <br>
 <code>source suraksha/bin/activate</code>
-4) Install required dependencies: <br>
+4. Install required dependencies: <br>
 <code>pip install -r requirements.txt</code>
-5) Run the webapp server:
+5. Run the webapp server:
 <code>./run.sh </code>
 
-For windows users:
-1) Check for virtual env:
+For windows users:<br>
+1. Check for virtual env: <br>
 <code>py -m pip install --user virtualenv</code>
-2) Create virtual env with name suraksha:
+2. Create virtual env with name suraksha: <br>
 <code>py -m venv suraksha</code>
-3) Activate virtual env:
+3. Activate virtual env: <br>
 <code>.\suraksha\Scripts\activate</code>
-4) Install required dependencies:
+4. Install required dependencies:  <br>
 <code>pip install -r requirements.txt</code>
-5) Change directory to website:
+5. Change directory to website:
 <code>cd website</code>
-6) Run Project Server:
+6. Run Project Server:
 <code>python manage.py runserver</code>
