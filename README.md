@@ -13,7 +13,7 @@ python3 -m pip install virtualenv
 python3 -m venv suraksha
 3) Activate virtual env:
 source suraksha/bin/activate
-4) Install required dependicies:
+4) Install required dependencies:
 pip install -r requirements.txt
 5) Run the webapp server:
 ./run.sh 
@@ -25,7 +25,7 @@ py -m pip install --user virtualenv
 py -m venv suraksha
 3) Activate virtual env:
 .\suraksha\Scripts\activate
-4) Install required dependicies:
+4) Install required dependencies:
 pip install -r requirements.txt
 5) Change directory to website:
 cd website

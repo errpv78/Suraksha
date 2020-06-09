@@ -118,7 +118,7 @@
             <ul>
               {% if user.is_authenticated %}
                   <li>
-                      <a class="nav-link nav-item dropdown-trigger tooltipped navbar-nav mr-auto" style="color:white;" href="#" data-target="dropdown3" data-position="left" data-tooltip="Hello, {{user.username}}"><h3>{{user.username}}</h3></a>
+                      <a class="nav-link nav-item dropdown-trigger tooltipped navbar-nav mr-auto" style="color:white;" href="#" data-target="dropdown3" data-position="left" data-tooltip="Hello, {{user.username}}"><h5>{{user.username}}</h5></a>
                   </li>
                 <ul id='dropdown3' class='dropdown-content' style="background-color: #f1f1f1;">
                     <li><a style="color: #000000;" href="/logout" class="tooltipped" data-position="left" data-tooltip="Good Bye">Logout</a></li>
