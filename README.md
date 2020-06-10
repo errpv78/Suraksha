@@ -1,5 +1,5 @@
 # Suraksha
-Suraksha is a wb based application designed keeping women empowerment and safety in mind. 
+Suraksha is a web based application designed, keeping women empowerment and safety in mind. 
 
 Some salient features are:
 1. News articles highlighting issues pertaining to gender based crimes, 
@@ -21,8 +21,10 @@ For linux/macOS users: <br>
 <code>source suraksha/bin/activate</code>
 4. Install required dependencies: <br>
 <code>pip install -r requirements.txt</code>
-5. Run the webapp server:
-<code>./run.sh </code>
+5. Change directory to website:
+<code>cd website</code>
+6. Run Project Server:
+<code>python manage.py runserver</code> or <code>python3 manage.py runserver</code> [depending on python version installed]
 
 For windows users:<br>
 1. Check for virtual env: <br>
